@@ -160,13 +160,6 @@ const MobileNav = () => {
                                                             item.href,
                                                             index
                                                         );
-                                                        if (
-                                                            item.subItems
-                                                                .length > 0
-                                                        ) {
-                                                            e.preventDefault();
-                                                            handleToggle(index);
-                                                        }
                                                     }}
                                                     className={cn(
                                                         "flex w-full items-center justify-between rounded-md p-4",
@@ -178,107 +171,8 @@ const MobileNav = () => {
                                                     {item.name}
 
                                                     {/* indicators */}
-                                                    {item.subItems.length >
-                                                        0 && (
-                                                        <button
-                                                            aria-expanded={
-                                                                openIndicator ===
-                                                                index
-                                                            }
-                                                            aria-controls={`submenu-${index}`}
-                                                            className="cursor-pointer"
-                                                            onClick={() =>
-                                                                handleToggle(
-                                                                    index
-                                                                )
-                                                            }
-                                                        >
-                                                            {openIndicator ===
-                                                            index ? (
-                                                                <IconPlus className="rotate-45 transform transition" />
-                                                            ) : (
-                                                                <IconPlus className="transition" />
-                                                            )}
-                                                        </button>
-                                                    )}
                                                 </Link>
                                             </li>
-
-                                            {/* Sub menu */}
-                                            <AnimatePresence>
-                                                {item.subItems.length > 0 &&
-                                                    openIndicator === index && (
-                                                        <motion.li
-                                                            initial={{
-                                                                opacity: 0,
-                                                                height: 0,
-                                                            }}
-                                                            animate={{
-                                                                opacity: 1,
-                                                                height: "auto",
-                                                            }}
-                                                            exit={{
-                                                                opacity: 0,
-                                                                height: 0,
-                                                                transition: {
-                                                                    duration: 0.2,
-                                                                },
-                                                            }}
-                                                            transition={{
-                                                                duration: 0.3,
-                                                            }}
-                                                            className="ml-[10%] w-[90%] overflow-hidden rounded-md"
-                                                        >
-                                                            {item.subItems.map(
-                                                                (
-                                                                    sub,
-                                                                    subIndex
-                                                                ) => {
-                                                                    const isSubActive =
-                                                                        activeLink ===
-                                                                        sub.href;
-                                                                    return (
-                                                                        <motion.div
-                                                                            key={
-                                                                                sub.href
-                                                                            }
-                                                                            custom={
-                                                                                subIndex
-                                                                            }
-                                                                            variants={
-                                                                                subItemVariants
-                                                                            }
-                                                                            initial="hidden"
-                                                                            animate="visible"
-                                                                            exit="hidden"
-                                                                        >
-                                                                            <Link
-                                                                                href={
-                                                                                    sub.href
-                                                                                }
-                                                                                className={cn(
-                                                                                    "my-1 block transform rounded-md px-2 py-3 font-poppins-semibold text-base transition-all duration-300 active:scale-95",
-                                                                                    isSubActive
-                                                                                        ? "text-primary"
-                                                                                        : "bg-800 hover:bg-850"
-                                                                                )}
-                                                                                onClick={() => {
-                                                                                    handleSubItemClick(
-                                                                                        sub.href
-                                                                                    );
-                                                                                }}
-                                                                            >
-                                                                                {
-                                                                                    sub.name
-                                                                                }
-                                                                            </Link>
-                                                                        </motion.div>
-                                                                    );
-                                                                }
-                                                            )}
-                                                        </motion.li>
-                                                    )}
-                                            </AnimatePresence>
                                         </motion.div>
                                     );
                                 })}
