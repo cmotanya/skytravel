@@ -1,14 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, Controller } from "react-hook-form";
-import {
-    IconMapPin,
-    IconUsers,
-    IconPlane,
-    IconCalendar,
-    IconMail,
-    IconPhone,
-    IconUser,
-} from "@tabler/icons-react";
+import { IconPlane, IconMail, IconPhone, IconUser } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -19,33 +11,11 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
-import { z } from "zod";
+
 import { useState } from "react";
 import { toast, Toaster } from "sonner";
 import { DatePicker } from "./ui/date-picker";
-
-const bookFlightSchema = z.object({
-    from: z.string().min(1, "Departure airport is required"),
-    to: z.string().min(1, "Arrival airport is required"),
-    departureDate: z.date({
-        required_error: "Departure date is required",
-    }),
-    name: z.string().min(1, "First name is required"),
-    email: z.string().email("Invalid email address"),
-    phone: z
-        .string()
-        .min(1, "Phone number is required")
-        .regex(/^\+?\d+$/, "Please enter a valid number!"),
-});
-
-type BookFlightSchema = z.infer<typeof bookFlightSchema>;
+import { bookFlightSchema, BookFlightSchema } from "@/lib/type";
 
 const BookFlightForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -238,7 +208,7 @@ const BookFlightForm = () => {
 
                     <Button
                         type="submit"
-                        className="w-full md:w-auto mt-4"
+                        className="mt-4 w-full md:w-auto"
                         disabled={isSubmitting}
                     >
                         {isSubmitting ? "Booking..." : "Book Flight"}

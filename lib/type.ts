@@ -1,17 +1,17 @@
 import { z } from "zod";
 
-export const sendEmailSchema = z.object({
-    from: z.string().min(1, "Location is required!"),
-
-    to: z.string().trim().toLowerCase().min(1, "Location is required!"),
-
-    date: z.string().trim().min(1, "Date is required!"),
-
-    passenger: z
+export const bookFlightSchema = z.object({
+    from: z.string().min(1, "Departure location is required"),
+    to: z.string().min(1, "Arrival location is required"),
+    departureDate: z.date({
+        required_error: "Departure date is required",
+    }),
+    name: z.string().min(1, "Name is required"),
+    email: z.string().email("Invalid email address"),
+    phone: z
         .string()
-        .trim()
-        .regex(/^\+?\d+$/, "Please enter a valid number!")
-        .min(1, { message: "Number is!" }),
+        .min(1, "Phone number is required")
+        .regex(/^\+?\d+$/, "Please enter a valid number!"),
 });
 
-export type TSendEmailSchema = z.infer<typeof sendEmailSchema>;
+export type BookFlightSchema = z.infer<typeof bookFlightSchema>;
