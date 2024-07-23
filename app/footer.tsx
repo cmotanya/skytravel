@@ -43,12 +43,12 @@ const Footer = () => {
                 >
                     {/* Logo and description */}
                     <div className="space-y-6 md:space-y-12">
-                        <Image
+                        {/* <Image
                             src="/images/connex-logo.png"
                             alt="logo image"
                             width={130}
                             height={130}
-                        />
+                        /> */}
                         <motion.p
                             className="text-balance text-base text-400"
                             variants={itemVariants}

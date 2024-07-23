@@ -15,30 +15,26 @@ const DesktopNav = () => {
     };
 
     return (
-        <nav className="hidden text-lg md:flex">
-            {nav_elements.map((item) => {
-                const isActive = activeItem.main === item.href;
-                return (
-                    <ul
-                        key={item.href}
-                        className="group relative flex items-center"
-                    >
-                        <li className="mx-0.5 flex w-[10rem] items-center justify-center rounded-md bg-primary hover:bg-accent">
+        <nav className="hidden overflow-hidden rounded-full text-lg ring-2 ring-gray-800 md:flex">
+            <ul className="flex items-center gap-2">
+                {nav_elements.map((item) => {
+                    return (
+                        <li
+                            key={item.href}
+                            className="flex w-full items-center justify-center rounded-md"
+                        >
                             <Link
                                 href={item.href}
                                 className={cn(
-                                    "flex w-full items-center justify-around gap-2 rounded-md p-2 text-200",
-                                    isActive
-                                        ? "bg-accent"
-                                        : "bg-primary hover:bg-accent"
+                                    "hover:bg-primary-foreground flex w-full items-center justify-around rounded-full px-4 py-2 text-base font-semibold hover:text-primary"
                                 )}
                             >
                                 {item.name}
                             </Link>
                         </li>
-                    </ul>
-                );
-            })}
+                    );
+                })}
+            </ul>
         </nav>
     );
 };

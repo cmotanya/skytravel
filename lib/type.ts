@@ -11,6 +11,7 @@ export const bookFlightSchema = z.object({
     phone: z
         .string()
         .min(1, "Phone number is required")
+        .min(10, "Please enter a valid phone number!")
         .regex(/^\+?\d+$/, "Please enter a valid number!"),
 });
 
