@@ -9,7 +9,8 @@ import Link from "next/link";
 import { Merienda as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { splitStringUsingRegex } from "@/lib/splitStringUsingRegex";
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -18,11 +19,11 @@ const fontSans = FontSans({
 });
 
 export default function Home() {
+    const [isMouseEntered, setIsMouseEntered] = useState(false);
+
     const heading = "EXPLORE THE WORLD WITH TRAVELAIR";
-    const text = `Explore some of the most beautiful and exotic locations around the world. Whether you&apos;re looking for a relaxing beach getaway, an adventurous mountain hike, or a cultural city experience, we have something for everyone. Let us inspire your next journey.`;
 
     const headingChar = splitStringUsingRegex(heading);
-    const textChar = splitStringUsingRegex(text);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -79,10 +80,16 @@ export default function Home() {
             },
         },
     };
+
+    const getTransformStyle = (isMouseEntered: boolean, index: number) => ({
+        transform: `translateY(${isMouseEntered ? "-100%" : "0%"})`,
+        transition: `transform 0.3s ease ${index * 0.03}s`,
+    });
+
     return (
         <main className="min-h-dvh">
             <div className="pt-12">
-                <div className="grid items-center justify-center px-3 pb-3 text-center md:min-h-dvh md:grid-flow-col md:grid-cols-2">
+                <div className="grid items-center justify-center px-3 pb-14 text-center md:min-h-dvh md:grid-flow-col md:grid-cols-2 md:pb-3">
                     <div className="flex h-dvh w-screen flex-col items-center justify-center space-y-8 text-balance md:h-auto md:w-full">
                         <motion.h1
                             initial="hidden"
@@ -116,6 +123,7 @@ export default function Home() {
                             next journey.
                         </motion.p>
 
+                        {/* Button Component */}
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
@@ -127,10 +135,42 @@ export default function Home() {
                                 <Button
                                     asChild
                                     variant={"outline"}
-                                    className="mx-auto flex w-full items-center gap-4 rounded-full py-5 font-semibold uppercase tracking-wide ring-1 ring-[#1d3557] md:w-auto"
+                                    onMouseEnter={() => setIsMouseEntered(true)}
+                                    onMouseLeave={() =>
+                                        setIsMouseEntered(false)
+                                    }
+                                    className="mx-auto flex w-full items-center gap-4 rounded-full h-[48px] font-semibold uppercase tracking-wide ring-1 ring-[#1d3557] md:w-auto"
                                 >
                                     <Link href="#form">
-                                        Book Your destination{" "}
+                                        <span className="relative overflow-hidden">
+                                            {splitStringUsingRegex(
+                                                "Book Your destination"
+                                            ).map((char, index) => (
+                                                <span
+                                                    key={index}
+                                                    className="relative overflow-hidden"
+                                                >
+                                                    <span
+                                                        style={getTransformStyle(
+                                                            isMouseEntered,
+                                                            index
+                                                        )}
+                                                        className="relative whitespace-pre"
+                                                    >
+                                                        {char}
+                                                    </span>
+                                                    <span
+                                                        style={getTransformStyle(
+                                                            isMouseEntered,
+                                                            index
+                                                        )}
+                                                        className="absolute left-0 top-full"
+                                                    >
+                                                        {char}
+                                                    </span>
+                                                </span>
+                                            ))}{" "}
+                                        </span>
                                         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground text-foreground">
                                             <IconLuggage />
                                         </span>
@@ -142,10 +182,10 @@ export default function Home() {
                                 className="w-full"
                             >
                                 <Button className="group relative mx-auto flex w-full items-center gap-4 overflow-hidden rounded-full bg-[#1d3557] py-6 font-semibold uppercase tracking-wide text-white">
-                                    <span className="absolute left-4 z-20 group-hover:text-black">
+                                    <span className="absolute left-8 z-20 group-hover:text-black md:left-3">
                                         Contact Us Today
                                     </span>
-                                    <div className="absolute inset-y-0 right-1 top-1/2 flex h-[calc(100%-0.5rem)] w-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full bg-primary-foreground pl-1 text-foreground transition-all duration-300 ease-in-out group-hover:w-[calc(100%-0.4rem)] group-hover:bg-gray-200">
+                                    <div className="absolute inset-y-0 right-1 top-1/2 flex h-[calc(100%-0.5rem)] w-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full bg-primary-foreground pl-1 text-foreground transition-all duration-300 ease-in-out group-hover:bg-gray-200 md:group-hover:w-[calc(100%-0.4rem)]">
                                         <span className="absolute right-2 text-lg">
                                             <IconArrowRight />
                                         </span>
@@ -154,6 +194,8 @@ export default function Home() {
                             </motion.div>
                         </motion.div>
                     </div>
+
+                    {/* Form */}
                     <div
                         id="form"
                         className="flex w-full flex-col items-center justify-center px-2 md:px-0"
