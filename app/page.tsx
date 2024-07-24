@@ -20,7 +20,7 @@ export default function Home() {
         <main className="relative min-h-dvh">
             {/* <ParticleBackground /> */}
             <div className="pt-12">
-                <div className="z-20 flex h-dvh flex-col items-center justify-center px-3 text-center md:flex-row">
+                <div className="z-20 flex flex-col items-center justify-center px-3 text-center md:h-dvh md:flex-row">
                     <div className="flex h-dvh flex-col items-center justify-center space-y-8 text-balance md:h-auto">
                         <h1
                             className={cn(
@@ -42,7 +42,7 @@ export default function Home() {
                             <Button
                                 asChild
                                 variant={"outline"}
-                                className="mx-auto flex w-3/4 items-center gap-4 font-semibold uppercase tracking-wide ring-1 ring-[#1d3557] md:w-auto"
+                                className="mx-auto flex w-full items-center gap-4 font-semibold uppercase tracking-wide ring-1 ring-[#1d3557] md:w-auto"
                             >
                                 <Link href="#form">
                                     Book Your destination{" "}
@@ -51,7 +51,7 @@ export default function Home() {
                                     </span>
                                 </Link>
                             </Button>
-                            <Button className="mx-auto flex w-3/4 items-center gap-4 bg-[#1d3557] font-semibold uppercase tracking-wide md:w-auto">
+                            <Button className="mx-auto flex w-full items-center gap-4 bg-[#1d3557] font-semibold uppercase tracking-wide md:w-auto">
                                 Contact Us Today{" "}
                                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground text-foreground">
                                     <IconArrowRight />
