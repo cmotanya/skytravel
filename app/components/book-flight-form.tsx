@@ -208,7 +208,7 @@ const BookFlightForm = () => {
 
                     <Button
                         type="submit"
-                        className="mt-4 w-full md:w-auto"
+                        className="mt-4 w-full font-semibold md:w-auto"
                         disabled={isSubmitting}
                     >
                         {isSubmitting ? "Booking..." : "Book Flight"}

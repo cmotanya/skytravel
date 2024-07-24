@@ -6,6 +6,14 @@ import { IconArrowRight, IconLuggage } from "@tabler/icons-react";
 import Image from "next/image";
 import { heroImages } from "./lib/hero-images";
 import Link from "next/link";
+import { Merienda as FontSans } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const fontSans = FontSans({
+    subsets: ["latin"],
+    weight: ["400", "600", "700"],
+    variable: "--font-sans",
+});
 
 export default function Home() {
     return (
@@ -14,7 +22,12 @@ export default function Home() {
             <div className="pt-32">
                 <div className="z-20 flex h-full flex-col items-center justify-center gap-8 px-3 text-center md:flex-row">
                     <div className="space-y-8 text-balance">
-                        <h1 className="text-4xl font-bold md:text-5xl">
+                        <h1
+                            className={cn(
+                                "text-4xl font-bold font-sans md:text-5xl",
+                                fontSans.variable
+                            )}
+                        >
                             EXPLORE THE WORLD WITH TRAVELAIR
                         </h1>
                         <p className="leading-7">
@@ -25,10 +38,10 @@ export default function Home() {
                             cumque quas dolor fugit eum illo accusamus?
                         </p>
 
-                        <div className="flex flex-col gap-4 md:flex-row pb-6">
+                        <div className="flex flex-col gap-4 pb-6 md:flex-row">
                             <Button
                                 asChild
-                                className="mx-auto flex w-3/4 items-center gap-4 font-bold uppercase tracking-wide md:w-auto"
+                                className="mx-auto flex w-3/4 items-center gap-4 font-semibold uppercase tracking-wide md:w-auto"
                                 variant={"outline"}
                             >
                                 <Link href="#form">
