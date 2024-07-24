@@ -30,7 +30,7 @@ export default function Home() {
                         >
                             EXPLORE THE WORLD WITH TRAVELAIR
                         </h1>
-                        <p className="leading-7 font-semibold">
+                        <p className="leading-7 md:font-semibold">
                             Explore some of the most beautiful and exotic
                             locations around the world. Whether you&apos;re
                             looking for a relaxing beach getaway, an adventurous

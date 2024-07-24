@@ -15,7 +15,7 @@ const DesktopNav = () => {
     };
 
     return (
-        <nav className="hidden overflow-hidden rounded-full text-lg ring-2 ring-gray-800 md:flex">
+        <nav className="hidden overflow-hidden rounded-full text-lg ring-0 md:flex">
             <ul className="flex items-center gap-2">
                 {nav_elements.map((item) => {
                     return (
@@ -26,7 +26,7 @@ const DesktopNav = () => {
                             <Link
                                 href={item.href}
                                 className={cn(
-                                    "hover:bg-primary-foreground flex w-full items-center justify-around rounded-full px-4 py-2 text-base font-semibold hover:text-primary"
+                                    "flex w-full items-center justify-around rounded-full px-4 py-2 text-base hover:bg-primary-foreground hover:text-primary"
                                 )}
                             >
                                 {item.name}
