@@ -23,6 +23,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { motion } from "framer-motion";
 
 const BookFlightForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,6 +32,54 @@ const BookFlightForm = () => {
     const [bookingStatus, setBookingStatus] = useState<
         "success" | "idle" | "error"
     >("idle");
+
+    const formVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                duration: 0.5,
+                delayChildren: 0.2,
+                staggerChildren: 0.5,
+            },
+        },
+    };
+
+    const errorMessageVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                damping: 12,
+                stiffness: 200,
+            },
+        },
+    };
+
+    const confirmContainerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+
+            transition: {
+                type: "spring",
+                delayChildren: 0.3,
+                staggerChildren: 0.2,
+            },
+        },
+    };
+    const confirmItemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            type: "tween",
+            duration: 0.5,
+            ease: [0.43, 0.13, 0.23, 0.96],
+        },
+    };
 
     const form = useForm<BookFlightSchema>({
         resolver: zodResolver(bookFlightSchema),
@@ -87,40 +136,45 @@ const BookFlightForm = () => {
         <>
             <Toaster position="top-center" />
             {showConfirmation && formData ? (
-                <div className="text-start">
+                <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={confirmContainerVariants}
+                    className="text-start"
+                >
                     <h2 className="my-2 font-semibold uppercase">
                         Confirm Your Booking.
                     </h2>
 
                     <div className="space-y-2">
-                        <p>
-                            <strong>From: </strong>
-                            {formData.from}
-                        </p>
-                        <p>
-                            <strong>To: </strong>
-                            {formData.to}
-                        </p>
-                        <p>
-                            <strong>Departure Date: </strong>
-                            {formData.departureDate.toDateString()}
-                        </p>
-                        <p>
-                            <strong>Name: </strong>
-                            {formData.name}
-                        </p>
-                        <p>
-                            <strong>Email :</strong>
-                            {formData.email}
-                        </p>
-                        <p>
-                            <strong>Phone: </strong>
-                            {formData.phone}
-                        </p>
-                        <p>
-                            <strong>Travel Class: </strong>
-                            {formData.travelClass}
-                        </p>
+                        {[
+                            { label: "From", value: formData.from },
+                            { label: "To", value: formData.to },
+                            {
+                                label: "Departure Date",
+                                value: formData.departureDate,
+                            },
+                            { label: "Name", value: formData.name },
+                            { label: "Email", value: formData.email },
+                            { label: "Phone", value: formData.phone },
+                            {
+                                label: "Travel Class",
+                                value: formData.travelClass,
+                            },
+                        ].map((item, index) => (
+                            <motion.p
+                                key={index}
+                                variants={confirmItemVariants}
+                            >
+                                <span className="font-semibold">
+                                    {item.label}
+                                </span>{" "}
+                                :{" "}
+                                {item.value instanceof Date
+                                    ? item.value.toLocaleDateString()
+                                    : item.value}
+                            </motion.p>
+                        ))}
                     </div>
 
                     <div className="mt-4 flex gap-6">
@@ -140,7 +194,7 @@ const BookFlightForm = () => {
                             Edit Details
                         </Button>
                     </div>
-                </div>
+                </motion.div>
             ) : (
                 <Form {...form}>
                     <p
@@ -152,7 +206,12 @@ const BookFlightForm = () => {
                         onSubmit={form.handleSubmit(onSubmit)}
                         className="mx-auto w-full md:w-[60%]"
                     >
-                        <div className="grid grid-cols-1 gap-2">
+                        <motion.div
+                            initial="hidden"
+                            animate="visible"
+                            variants={formVariants}
+                            className="grid grid-cols-1 gap-2"
+                        >
                             <FormField
                                 control={form.control}
                                 name="from"
@@ -174,7 +233,13 @@ const BookFlightForm = () => {
                                                 />
                                             </div>
                                         </FormControl>
-                                        <FormMessage className="ml-1 block text-start" />
+                                        <motion.div
+                                            initial="hidden"
+                                            animate="visible"
+                                            variants={errorMessageVariants}
+                                        >
+                                            <FormMessage className="ml-1 block text-start" />
+                                        </motion.div>
                                     </FormItem>
                                 )}
                             />
@@ -200,7 +265,13 @@ const BookFlightForm = () => {
                                                 />
                                             </div>
                                         </FormControl>
-                                        <FormMessage className="ml-1 block text-start" />
+                                        <motion.div
+                                            initial="hidden"
+                                            animate="visible"
+                                            variants={errorMessageVariants}
+                                        >
+                                            <FormMessage className="ml-1 block text-start" />
+                                        </motion.div>
                                     </FormItem>
                                 )}
                             />
@@ -219,7 +290,13 @@ const BookFlightForm = () => {
                                                 field.onChange(date)
                                             }
                                         />
-                                        <FormMessage className="ml-1 block text-start" />
+                                        <motion.div
+                                            initial="hidden"
+                                            animate="visible"
+                                            variants={errorMessageVariants}
+                                        >
+                                            <FormMessage className="ml-1 block text-start" />
+                                        </motion.div>
                                     </FormItem>
                                 )}
                             />
@@ -245,7 +322,13 @@ const BookFlightForm = () => {
                                                 />
                                             </div>
                                         </FormControl>
-                                        <FormMessage className="ml-1 block text-start" />
+                                        <motion.div
+                                            initial="hidden"
+                                            animate="visible"
+                                            variants={errorMessageVariants}
+                                        >
+                                            <FormMessage className="ml-1 block text-start" />
+                                        </motion.div>
                                     </FormItem>
                                 )}
                             />
@@ -272,7 +355,13 @@ const BookFlightForm = () => {
                                                 />
                                             </div>
                                         </FormControl>
-                                        <FormMessage className="ml-1 block text-start" />
+                                        <motion.div
+                                            initial="hidden"
+                                            animate="visible"
+                                            variants={errorMessageVariants}
+                                        >
+                                            <FormMessage className="ml-1 block text-start" />
+                                        </motion.div>
                                     </FormItem>
                                 )}
                             />
@@ -299,7 +388,13 @@ const BookFlightForm = () => {
                                                 />
                                             </div>
                                         </FormControl>
-                                        <FormMessage className="ml-1 block text-start" />
+                                        <motion.div
+                                            initial="hidden"
+                                            animate="visible"
+                                            variants={errorMessageVariants}
+                                        >
+                                            <FormMessage className="ml-1 block text-start" />
+                                        </motion.div>
                                     </FormItem>
                                 )}
                             />
@@ -340,7 +435,7 @@ const BookFlightForm = () => {
                                     </FormItem>
                                 )}
                             />
-                        </div>
+                        </motion.div>
 
                         <Button
                             type="submit"

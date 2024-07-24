@@ -9,7 +9,7 @@ import Link from "next/link";
 import { Merienda as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { splitStringUsingRegex } from "@/lib/splitStringUsingRegex";
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -56,6 +56,29 @@ export default function Home() {
         },
     };
 
+    const buttonContainerVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                delayChildren: 0.3,
+                staggerChildren: 0.2,
+            },
+        },
+    };
+    const buttonVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "tween",
+                duration: 0.5,
+                ease: [0.43, 0.13, 0.23, 0.96],
+            },
+        },
+    };
     return (
         <main className="min-h-dvh">
             <div className="pt-12">
@@ -82,43 +105,54 @@ export default function Home() {
                         <motion.p
                             className="leading-7 md:font-semibold"
                             initial="hidden"
-                            variants={containerVariants}
                             animate="visible"
+                            variants={charVariants}
                         >
-                            {textChar.map((char, index) => (
-                                <motion.span
-                                    key={index}
-                                    variants={charVariants}
-                                >
-                                    {char}
-                                </motion.span>
-                            ))}
+                            Explore some of the most beautiful and exotic
+                            locations around the world. Whether you&apos;re
+                            looking for a relaxing beach getaway, an adventurous
+                            mountain hike, or a cultural city experience, we
+                            have something for everyone. Let us inspire your
+                            next journey.
                         </motion.p>
 
-                        <div className="flex w-3/4 flex-col gap-4 pb-6 pt-10 md:flex-row">
-                            <Button
-                                asChild
-                                variant={"outline"}
-                                className="mx-auto flex w-full items-center gap-4 rounded-full py-5 font-semibold uppercase tracking-wide ring-1 ring-[#1d3557] md:w-auto"
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={buttonContainerVariants}
+                            className="flex w-3/4 flex-col gap-4 pb-6 pt-10 md:flex-row"
+                        >
+                            <motion.div variants={buttonVariants}>
+                                <Button
+                                    asChild
+                                    variant={"outline"}
+                                    className="mx-auto flex w-full items-center gap-4 rounded-full py-5 font-semibold uppercase tracking-wide ring-1 ring-[#1d3557] md:w-auto"
+                                >
+                                    <Link href="#form">
+                                        Book Your destination{" "}
+                                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground text-foreground">
+                                            <IconLuggage />
+                                        </span>
+                                    </Link>
+                                </Button>
+                            </motion.div>
+                            <motion.div
+                                variants={buttonVariants}
+                                className="w-full"
                             >
-                                <Link href="#form">
-                                    Book Your destination{" "}
-                                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground text-foreground">
-                                        <IconLuggage />
+                                <Button className="group relative mx-auto flex w-full items-center gap-4 overflow-hidden rounded-full bg-[#1d3557] py-6 font-semibold uppercase tracking-wide text-white">
+                                    <span className="absolute left-4 z-20 group-hover:text-black">
+                                        Contact Us Today
                                     </span>
-                                </Link>
-                            </Button>
-                            <Button className="group relative mx-auto flex w-full items-center gap-4 overflow-hidden rounded-full bg-[#1d3557] py-6 font-semibold uppercase tracking-wide text-white">
-                                <span className="absolute left-4 z-20 group-hover:text-black">
-                                    Contact Us Today
-                                </span>
-                                <div className="absolute inset-y-0 right-1 top-1/2 flex h-[calc(100%-0.5rem)] w-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full bg-primary-foreground pl-1 text-foreground transition-all duration-300 ease-in-out group-hover:w-[calc(100%-0.4rem)] group-hover:bg-gray-200">
-                                    <span className="absolute right-2 text-lg">
-                                        <IconArrowRight />
-                                    </span>
-                                </div>
-                            </Button>
-                        </div>
+                                    <div className="absolute inset-y-0 right-1 top-1/2 flex h-[calc(100%-0.5rem)] w-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full bg-primary-foreground pl-1 text-foreground transition-all duration-300 ease-in-out group-hover:w-[calc(100%-0.4rem)] group-hover:bg-gray-200">
+                                        <span className="absolute right-2 text-lg">
+                                            <IconArrowRight />
+                                        </span>
+                                    </div>
+                                </Button>
+                            </motion.div>
+                        </motion.div>
                     </div>
                     <div
                         id="form"
