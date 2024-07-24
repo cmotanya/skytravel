@@ -16,9 +16,19 @@ import { useState } from "react";
 import { toast, Toaster } from "sonner";
 import { DatePicker } from "./ui/date-picker";
 import { BookFlightSchema, bookFlightSchema } from "../types/type";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 
 const BookFlightForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showConfirmation, setShowConfirmation] = useState(false);
+    const [formData, setFormData] = useState<BookFlightSchema | null>(null);
 
     const form = useForm<BookFlightSchema>({
         resolver: zodResolver(bookFlightSchema),
@@ -29,16 +39,30 @@ const BookFlightForm = () => {
             name: "",
             email: "",
             phone: "",
+            travelClass: "economy",
         },
     });
 
-    const onSubmit = async (data: BookFlightSchema) => {
+    const onSubmit = (data: BookFlightSchema) => {
+        setFormData(data);
+        setShowConfirmation(true);
+    };
+
+    const handleEdit = () => {
+        setFormData(null);
+        setShowConfirmation(false);
+    };
+
+    const handleConfirm = async (data: BookFlightSchema) => {
+        if (!formData) return;
         setIsSubmitting(true);
+
         try {
             console.log(data);
             await new Promise((resolve) => setTimeout(resolve, 1000));
             form.reset();
             toast.success("Flight booked successfully!");
+            setShowConfirmation(false);
         } catch (error) {
             console.error("Error booking flight:", error);
             toast.error("An error occurred while booking the flight.");
@@ -47,10 +71,74 @@ const BookFlightForm = () => {
         }
     };
 
+    if (showConfirmation && formData) {
+        return (
+            <div className="text-start">
+                <h2 className="my-2 font-semibold uppercase">
+                    Confirm Your Booking.
+                </h2>
+
+                <div className="space-y-2">
+                    <p>
+                        <strong>From: </strong>
+                        {formData.from}
+                    </p>
+                    <p>
+                        <strong>To: </strong>
+                        {formData.to}
+                    </p>
+                    <p>
+                        <strong>Departure Date: </strong>
+                        {formData.departureDate.toDateString()}
+                    </p>
+                    <p>
+                        <strong>Name: </strong>
+                        {formData.name}
+                    </p>
+                    <p>
+                        <strong>Email :</strong>
+                        {formData.email}
+                    </p>
+                    <p>
+                        <strong>Phone: </strong>
+                        {formData.phone}
+                    </p>
+                    <p>
+                        <strong>Travel Class: </strong>
+                        {formData.travelClass}
+                    </p>
+                </div>
+
+                <div className="mt-4 flex gap-6">
+                    <Button
+                        onClick={() => handleConfirm(formData)}
+                        disabled={isSubmitting}
+                        className="w-3/4 bg-[#1d3557] font-semibold uppercase md:w-auto"
+                    >
+                        {isSubmitting ? "Confirming..." : "Confirm Booking"}
+                    </Button>
+
+                    <Button
+                        onClick={handleEdit}
+                        className="w-3/4 md:w-auto"
+                        variant={"destructive"}
+                    >
+                        Edit Details
+                    </Button>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <>
             <Toaster position="top-center" />
             <Form {...form}>
+                <p
+                    className={`mb-2 font-semibold ${setShowConfirmation} ? 'hidden' ? ''`}
+                >
+                    Book your flights with us today.
+                </p>
                 <form
                     onSubmit={form.handleSubmit(onSubmit)}
                     className="mx-auto w-full md:w-[60%]"
@@ -204,6 +292,43 @@ const BookFlightForm = () => {
                                 </FormItem>
                             )}
                         />
+
+                        <FormField
+                            control={form.control}
+                            name="travelClass"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel className="sr-only">
+                                        Travel Class
+                                    </FormLabel>
+                                    <Select
+                                        onValueChange={field.onChange}
+                                        defaultValue={field.value}
+                                    >
+                                        <FormControl>
+                                            <SelectTrigger className="focus-visible:ring-offset-0">
+                                                <SelectValue placeholder="Select travel class" />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            <SelectItem value="economy">
+                                                Economy
+                                            </SelectItem>
+                                            <SelectItem value="premiumEconomy">
+                                                Premium Economy
+                                            </SelectItem>
+                                            <SelectItem value="business">
+                                                Business
+                                            </SelectItem>
+                                            <SelectItem value="first">
+                                                First
+                                            </SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
                     </div>
 
                     <Button
@@ -211,7 +336,7 @@ const BookFlightForm = () => {
                         className="mt-4 w-full bg-[#e63946] md:w-auto"
                         disabled={isSubmitting}
                     >
-                        {isSubmitting ? "Booking..." : "Book Flight"}
+                        Review Booking
                     </Button>
                 </form>
             </Form>

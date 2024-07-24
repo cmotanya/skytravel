@@ -16,17 +16,17 @@ const DesktopNav = () => {
 
     return (
         <nav className="hidden overflow-hidden rounded-full text-lg ring-0 md:flex">
-            <ul className="flex items-center gap-2">
+            <ul className="grid grid-flow-col items-center gap-2">
                 {nav_elements.map((item) => {
                     return (
                         <li
                             key={item.href}
-                            className="flex w-full items-center justify-center rounded-md"
+                            className="flex w-full flex-wrap items-center justify-center rounded-md"
                         >
                             <Link
                                 href={item.href}
                                 className={cn(
-                                    "flex w-full items-center justify-around rounded-full px-4 py-2 text-base hover:bg-primary-foreground hover:text-primary"
+                                    "w-full rounded-full px-4 py-2 text-base hover:bg-primary-foreground hover:text-primary"
                                 )}
                             >
                                 {item.name}

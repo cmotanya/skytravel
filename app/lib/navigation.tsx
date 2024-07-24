@@ -16,8 +16,8 @@ const nav_elements = [
     //     href: "/contact",
     // },
     {
-        name: "Contact",
-        href: "/contact",
+        name: "About Us",
+        href: "/about-us",
     },
 ];
 

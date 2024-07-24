@@ -19,11 +19,9 @@ const fontSans = FontSans({
 export default function Home() {
     return (
         <main className="min-h-dvh">
-            <ParticleBackground />
-
             <div className="pt-12">
-                <div className="grid items-center justify-center overflow-hidden px-3 text-center md:h-dvh md:grid-flow-col md:grid-cols-2">
-                    <div className="flex h-dvh w-screen flex-col items-center justify-center space-y-8 overflow-hidden text-balance md:h-auto md:w-full">
+                <div className="grid items-center justify-center px-3 pb-3 text-center md:min-h-dvh md:grid-flow-col md:grid-cols-2">
+                    <div className="flex h-dvh w-screen flex-col items-center justify-center space-y-8 text-balance md:h-auto md:w-full">
                         <h1
                             className={cn(
                                 "font-sans text-4xl font-bold md:text-5xl",
@@ -66,14 +64,11 @@ export default function Home() {
                         id="form"
                         className="flex w-full flex-col items-center justify-center"
                     >
-                        <p className="mb-2 font-semibold text-background">
-                            Book your flights with us today.
-                        </p>
                         <BookFlightForm />
                     </div>
                 </div>
 
-                <div className="mt-10 space-y-3 bg-[#e9c46a] p-2 md:mt-0">
+                <div className="space-y-3 bg-[#e9c46a] p-2 md:mt-0">
                     <h2 className="pl-3 text-3xl font-semibold">
                         Discover our Featured Destinations.
                     </h2>
