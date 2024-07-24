@@ -49,7 +49,7 @@ const BookFlightForm = () => {
 
     return (
         <>
-            <Toaster position="bottom-center" />
+            <Toaster position="top-center" />
             <Form {...form}>
                 <form
                     onSubmit={form.handleSubmit(onSubmit)}

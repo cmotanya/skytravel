@@ -28,7 +28,7 @@ export default function Home() {
                         <div className="flex flex-col gap-4 md:flex-row pb-6">
                             <Button
                                 asChild
-                                className="mx-auto flex w-full items-center gap-4 font-bold uppercase tracking-wide md:w-auto"
+                                className="mx-auto flex w-3/4 items-center gap-4 font-bold uppercase tracking-wide md:w-auto"
                                 variant={"outline"}
                             >
                                 <Link href="#form">
@@ -38,7 +38,7 @@ export default function Home() {
                                     </span>
                                 </Link>
                             </Button>
-                            <Button className="mx-auto flex w-full items-center gap-4 font-bold uppercase tracking-wide md:w-auto">
+                            <Button className="mx-auto flex w-3/4 items-center gap-4 font-bold uppercase tracking-wide md:w-auto">
                                 Contact Us Today{" "}
                                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground text-foreground">
                                     <IconArrowRight />
@@ -81,7 +81,7 @@ export default function Home() {
                         ))}
                     </div>
 
-                    <Button className="w-full font-bold uppercase md:w-auto">
+                    <Button className="w-3/4 font-bold uppercase md:w-auto">
                         Explore All Destinations
                     </Button>
                 </div>
