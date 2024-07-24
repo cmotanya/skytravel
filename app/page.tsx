@@ -70,7 +70,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="space-y-3 bg-[#e9c46a] p-2">
+                <div className="mt-10 space-y-3 bg-[#e9c46a] p-2 md:mt-0">
                     <h2 className="pl-3 text-3xl font-semibold">
                         Discover our Featured Destinations.
                     </h2>
