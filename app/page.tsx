@@ -8,7 +8,6 @@ import { heroImages } from "./lib/hero-images";
 import Link from "next/link";
 import { Merienda as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
-import ParticleBackground from "./components/particles";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -62,7 +61,7 @@ export default function Home() {
                     </div>
                     <div
                         id="form"
-                        className="flex w-full flex-col items-center justify-center"
+                        className="flex w-full flex-col items-center justify-center px-2 md:px-0"
                     >
                         <BookFlightForm />
                     </div>
