@@ -2,12 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 import BookFlightForm from "./components/book-flight-form";
-import ParticleBackground from "./components/particles";
 import { IconArrowRight } from "@tabler/icons-react";
 
 export default function Home() {
     return (
-        <main className="relative h-dvh">
+        <main className="relative min-h-dvh">
             {/* <ParticleBackground /> */}
             <div className="pt-32">
                 <div className="z-20 flex h-full flex-col items-center justify-center gap-8 px-3 text-center md:flex-row">
@@ -24,16 +23,16 @@ export default function Home() {
                         </p>
 
                         <Button
-                            className="mx-auto flex items-center gap-4 font-bold uppercase"
+                            className="mx-auto flex items-center gap-4 font-bold uppercase tracking-wide"
                             // variant="secondary"
                         >
                             Contact Us Today{" "}
-                            <span className="bg-primary-foreground text-foreground flex h-8 w-8 items-center justify-center rounded-full">
+                            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground text-foreground">
                                 <IconArrowRight />
                             </span>
                         </Button>
                     </div>
-                    <div className="flex w-full flex-col items-center justify-center">
+                    <div className="flex max-h-dvh w-full flex-col items-center justify-center">
                         <p className="mb-2 font-semibold">
                             Book your flights with us today.
                         </p>
