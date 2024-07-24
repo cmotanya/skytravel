@@ -29,8 +29,8 @@ const Header = () => {
     return (
         <header
             className={cn(
-                "duration-400 fixed z-[9999] flex h-20 w-full items-center justify-between border-b-2 border-gray-900 bg-transparent px-5 transition-colors",
-                hasScrolled ? "bg-gray-900 shadow-2xl" : ""
+                "duration-400 fixed z-[9999] flex h-20 w-full items-center justify-between px-5 transition-colors",
+                hasScrolled ? "bg-[#457b9d] shadow-2xl" : "bg-[#a8dadc]"
             )}
         >
             <Link href="/">TravelAir</Link>

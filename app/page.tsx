@@ -19,12 +19,12 @@ export default function Home() {
     return (
         <main className="relative min-h-dvh">
             {/* <ParticleBackground /> */}
-            <div className="pt-32">
-                <div className="z-20 flex h-full flex-col items-center justify-center gap-8 px-3 text-center md:flex-row">
-                    <div className="space-y-8 text-balance">
+            <div className="pt-12">
+                <div className="z-20 flex h-dvh flex-col items-center justify-center px-3 text-center md:flex-row">
+                    <div className="flex h-dvh flex-col items-center justify-center space-y-8 text-balance md:h-auto">
                         <h1
                             className={cn(
-                                "text-4xl font-bold font-sans md:text-5xl",
+                                "font-sans text-4xl font-bold md:text-5xl",
                                 fontSans.variable
                             )}
                         >
@@ -41,8 +41,8 @@ export default function Home() {
                         <div className="flex flex-col gap-4 pb-6 md:flex-row">
                             <Button
                                 asChild
-                                className="mx-auto flex w-3/4 items-center gap-4 font-semibold uppercase tracking-wide md:w-auto"
                                 variant={"outline"}
+                                className="mx-auto flex w-3/4 items-center gap-4 font-semibold uppercase tracking-wide ring-1 ring-[#1d3557] md:w-auto"
                             >
                                 <Link href="#form">
                                     Book Your destination{" "}
@@ -51,7 +51,7 @@ export default function Home() {
                                     </span>
                                 </Link>
                             </Button>
-                            <Button className="mx-auto flex w-3/4 items-center gap-4 font-bold uppercase tracking-wide md:w-auto">
+                            <Button className="mx-auto flex w-3/4 items-center gap-4 bg-[#1d3557] font-semibold uppercase tracking-wide md:w-auto">
                                 Contact Us Today{" "}
                                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground text-foreground">
                                     <IconArrowRight />
@@ -70,7 +70,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="mt-10 space-y-3 bg-gray-900 p-2">
+                <div className="space-y-3 bg-[#e9c46a] p-2">
                     <h2 className="pl-3 text-3xl font-semibold">
                         Discover our Featured Destinations.
                     </h2>
@@ -94,7 +94,7 @@ export default function Home() {
                         ))}
                     </div>
 
-                    <Button className="w-3/4 font-bold uppercase md:w-auto">
+                    <Button className="w-3/4 bg-[#1d3557] font-semibold uppercase md:w-auto">
                         Explore All Destinations
                     </Button>
                 </div>
