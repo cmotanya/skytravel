@@ -25,10 +25,10 @@ export default function Home() {
                             cumque quas dolor fugit eum illo accusamus?
                         </p>
 
-                        <div className="flex gap-4">
+                        <div className="flex flex-col gap-4 md:flex-row pb-6">
                             <Button
                                 asChild
-                                className="mx-auto flex items-center gap-4 font-bold uppercase tracking-wide"
+                                className="mx-auto flex w-full items-center gap-4 font-bold uppercase tracking-wide md:w-auto"
                                 variant={"outline"}
                             >
                                 <Link href="#form">
@@ -38,7 +38,7 @@ export default function Home() {
                                     </span>
                                 </Link>
                             </Button>
-                            <Button className="mx-auto flex items-center gap-4 font-bold uppercase tracking-wide">
+                            <Button className="mx-auto flex w-full items-center gap-4 font-bold uppercase tracking-wide md:w-auto">
                                 Contact Us Today{" "}
                                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground text-foreground">
                                     <IconArrowRight />
