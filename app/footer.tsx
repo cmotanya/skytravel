@@ -53,7 +53,11 @@ const Footer = () => {
                             className="text-400 text-balance text-sm font-semibold"
                             variants={itemVariants}
                         >
-                            Your mind should bes strong than your feeling.
+                            At TravelAir, we are committed to making your travel
+                            dreams a reality. Our mission is to offer
+                            exceptional customer service and competitive prices,
+                            ensuring you have a hassle-free and enjoyable
+                            journey.
                         </motion.p>
                     </div>
 
@@ -122,14 +126,14 @@ const Footer = () => {
                             <InputFlight
                                 type="email"
                                 placeholder="Enter your email"
+                                required
                             />
                             <Button type="submit" className="w-fit">
                                 Subscribe
                             </Button>
                         </form>
-
                     </motion.div>
-                    <div className="flex flex-col mt-2">
+                    <div className="mt-2 flex flex-col">
                         {ContactInformation.map((info, index) => {
                             return (
                                 <motion.button
