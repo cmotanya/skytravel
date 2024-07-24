@@ -8,6 +8,7 @@ import { heroImages } from "./lib/hero-images";
 import Link from "next/link";
 import { Merienda as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
+import ParticleBackground from "./components/particles";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -17,11 +18,12 @@ const fontSans = FontSans({
 
 export default function Home() {
     return (
-        <main className="relative min-h-dvh">
-            {/* <ParticleBackground /> */}
+        <main className="min-h-dvh">
+            <ParticleBackground />
+
             <div className="pt-12">
-                <div className="z-20 flex flex-col items-center justify-center px-3 text-center md:h-dvh md:flex-row">
-                    <div className="flex h-dvh flex-col items-center justify-center space-y-8 text-balance md:h-auto">
+                <div className="grid items-center justify-center overflow-hidden px-3 text-center md:h-dvh md:grid-flow-col md:grid-cols-2">
+                    <div className="flex h-dvh w-screen flex-col items-center justify-center space-y-8 overflow-hidden text-balance md:h-auto md:w-full">
                         <h1
                             className={cn(
                                 "font-sans text-4xl font-bold md:text-5xl",
@@ -64,7 +66,7 @@ export default function Home() {
                         id="form"
                         className="flex w-full flex-col items-center justify-center"
                     >
-                        <p className="mb-2 font-semibold">
+                        <p className="mb-2 font-semibold text-background">
                             Book your flights with us today.
                         </p>
                         <BookFlightForm />
