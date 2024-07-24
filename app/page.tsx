@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button";
 import BookFlightForm from "./components/book-flight-form";
 import { IconArrowRight } from "@tabler/icons-react";
+import Image from "next/image";
+import { heroImages } from "./lib/hero-images";
 
 export default function Home() {
     return (
@@ -38,6 +40,19 @@ export default function Home() {
                         </p>
                         <BookFlightForm />
                     </div>
+                </div>
+
+                <div className="mt-10 grid grid-cols-2 gap-2 p-2 md:grid-cols-4">
+                    {heroImages.map((image) => (
+                        <Image
+                            key={image.src}
+                            src={image.src}
+                            alt=""
+                            width={400}
+                            height={400}
+                            className="h-[14rem] rounded-md object-cover object-center"
+                        />
+                    ))}
                 </div>
             </div>
         </main>

@@ -15,7 +15,7 @@ import {
 import { useState } from "react";
 import { toast, Toaster } from "sonner";
 import { DatePicker } from "./ui/date-picker";
-import { bookFlightSchema, BookFlightSchema } from "@/lib/type";
+import { BookFlightSchema, bookFlightSchema } from "../types/type";
 
 const BookFlightForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);

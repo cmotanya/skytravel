@@ -1,11 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { cn } from "./utils/cn";
 import DesktopNav from "./components/nav-desktop";
 import MobileNav from "./components/nav-mobile";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
     const [hasScrolled, setHasScrolled] = useState(false);

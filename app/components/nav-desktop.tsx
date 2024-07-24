@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { cn } from "../utils/cn";
 import { useState } from "react";
 import nav_elements from "../lib/navigation";
+import { cn } from "@/lib/utils";
 
 const DesktopNav = () => {
     const [activeItem, setActiveItem] = useState<{

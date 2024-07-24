@@ -3,10 +3,10 @@
 import { IconPlus } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { cn } from "../utils/cn";
 import { useEffect, useRef, useState } from "react";
 import nav_elements from "../lib/navigation";
 import HamburgerMenu from "./nav-hamburger-menu";
+import { cn } from "@/lib/utils";
 
 const MobileNav = () => {
     const [openIndicator, setOpenIndicator] = useState<number | null>(null);
