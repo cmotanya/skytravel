@@ -30,12 +30,13 @@ export default function Home() {
                         >
                             EXPLORE THE WORLD WITH TRAVELAIR
                         </h1>
-                        <p className="leading-7">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Earum reprehenderit amet repudiandae
-                            laudantium officia, suscipit excepturi fugit cum
-                            voluptate repellendus? Nulla tempora necessitatibus
-                            cumque quas dolor fugit eum illo accusamus?
+                        <p className="leading-7 font-semibold">
+                            Explore some of the most beautiful and exotic
+                            locations around the world. Whether you&apos;re
+                            looking for a relaxing beach getaway, an adventurous
+                            mountain hike, or a cultural city experience, we
+                            have something for everyone. Let us inspire your
+                            next journey.
                         </p>
 
                         <div className="flex flex-col gap-4 pb-6 md:flex-row">
@@ -61,7 +62,7 @@ export default function Home() {
                     </div>
                     <div
                         id="form"
-                        className="flex max-h-dvh w-full flex-col items-center justify-center"
+                        className="flex w-full flex-col items-center justify-center"
                     >
                         <p className="mb-2 font-semibold">
                             Book your flights with us today.
