@@ -2,9 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import BookFlightForm from "./components/book-flight-form";
-import { IconArrowRight } from "@tabler/icons-react";
+import { IconArrowRight, IconLuggage } from "@tabler/icons-react";
 import Image from "next/image";
 import { heroImages } from "./lib/hero-images";
+import Link from "next/link";
 
 export default function Home() {
     return (
@@ -24,17 +25,31 @@ export default function Home() {
                             cumque quas dolor fugit eum illo accusamus?
                         </p>
 
-                        <Button
-                            className="mx-auto flex items-center gap-4 font-bold uppercase tracking-wide"
-                            // variant="secondary"
-                        >
-                            Contact Us Today{" "}
-                            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground text-foreground">
-                                <IconArrowRight />
-                            </span>
-                        </Button>
+                        <div className="flex gap-4">
+                            <Button
+                                asChild
+                                className="mx-auto flex items-center gap-4 font-bold uppercase tracking-wide"
+                                variant={"outline"}
+                            >
+                                <Link href="#form">
+                                    Book Your destination{" "}
+                                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground text-foreground">
+                                        <IconLuggage />
+                                    </span>
+                                </Link>
+                            </Button>
+                            <Button className="mx-auto flex items-center gap-4 font-bold uppercase tracking-wide">
+                                Contact Us Today{" "}
+                                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground text-foreground">
+                                    <IconArrowRight />
+                                </span>
+                            </Button>
+                        </div>
                     </div>
-                    <div className="flex max-h-dvh w-full flex-col items-center justify-center">
+                    <div
+                        id="form"
+                        className="flex max-h-dvh w-full flex-col items-center justify-center"
+                    >
                         <p className="mb-2 font-semibold">
                             Book your flights with us today.
                         </p>
@@ -66,7 +81,7 @@ export default function Home() {
                         ))}
                     </div>
 
-                    <Button className="w-full md:w-auto">
+                    <Button className="w-full font-bold uppercase md:w-auto">
                         Explore All Destinations
                     </Button>
                 </div>
