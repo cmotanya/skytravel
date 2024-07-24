@@ -42,17 +42,33 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="mt-10 grid grid-cols-2 gap-2 p-2 md:grid-cols-4">
-                    {heroImages.map((image) => (
-                        <Image
-                            key={image.src}
-                            src={image.src}
-                            alt=""
-                            width={400}
-                            height={400}
-                            className="h-[14rem] rounded-md object-cover object-center"
-                        />
-                    ))}
+                <div className="mt-10 space-y-3 bg-gray-900 p-2">
+                    <h2 className="pl-3 text-3xl font-semibold">
+                        Discover our Featured Destinations.
+                    </h2>
+                    <p className="text-balance pl-3">
+                        Explore some of the most beautiful and exotic locations
+                        around the world. Whether you&apos;re looking for a
+                        relaxing beach getaway, an adventurous mountain hike, or
+                        a cultural city experience, we have something for
+                        everyone. Let us inspire your next journey.
+                    </p>
+                    <div className="grid grid-cols-1 gap-2 md:grid-cols-4">
+                        {heroImages.map((image) => (
+                            <Image
+                                key={image.src}
+                                src={image.src}
+                                alt={image.alt || "Featured destination image"}
+                                width={400}
+                                height={400}
+                                className="h-[14rem] w-full rounded-md object-cover object-center"
+                            />
+                        ))}
+                    </div>
+
+                    <Button className="w-full md:w-auto">
+                        Explore All Destinations
+                    </Button>
                 </div>
             </div>
         </main>
