@@ -5,6 +5,9 @@ import Image from "next/image";
 import { SocialLinks } from "./lib/socials";
 import { ContactInformation } from "./lib/contact-info";
 import { motion } from "framer-motion";
+import { InputFlight } from "./components/ui/input-email";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Footer = () => {
     const containerVariants = {
@@ -28,7 +31,7 @@ const Footer = () => {
 
     return (
         <motion.footer
-            className="absolute left-0 right-0 w-full bg-800 p-2 pt-2 font-poppins-regular md:pt-5"
+            className="absolute left-0 right-0 w-full bg-gray-300 p-2 pt-4 md:pt-10"
             initial="hidden"
             animate="visible"
             variants={containerVariants}
@@ -38,25 +41,19 @@ const Footer = () => {
                 variants={containerVariants}
             >
                 <motion.div
-                    className="w-full space-y-6 rounded-md bg-900 p-3 md:w-[45%] md:space-y-12"
+                    className="bg-900 w-full space-y-6 rounded-md p-3 md:w-[45%] md:space-y-12"
                     variants={itemVariants}
                 >
                     {/* Logo and description */}
-                    <div className="space-y-6 md:space-y-12">
-                        {/* <Image
-                            src="/images/connex-logo.png"
-                            alt="logo image"
-                            width={130}
-                            height={130}
-                        /> */}
+                    <div className="space-y-2 md:space-y-6">
+                        <span className="text-2xl font-semibold">
+                            TravelAir
+                        </span>
                         <motion.p
-                            className="text-balance text-base text-400"
+                            className="text-400 text-balance text-sm font-semibold"
                             variants={itemVariants}
                         >
-                            Originally founded in 2013, Connex International is
-                            one of the largest logistics company in Ambalalo. We
-                            serve a wide range of customers from small to
-                            mid-sized businesses.
+                            Your mind should bes strong than your feeling.
                         </motion.p>
                     </div>
 
@@ -66,7 +63,7 @@ const Footer = () => {
                             <motion.button
                                 key={index}
                                 aria-label={`Visit our ${link.name} page.`}
-                                className="rounded-md bg-750 p-1 transition-all duration-300 hover:bg-850"
+                                className="bg-750 hover:bg-850 rounded-md p-1 transition-all duration-300"
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
                             >
@@ -78,32 +75,72 @@ const Footer = () => {
 
                 {/* Navigation links */}
                 <motion.div
-                    className="w-full rounded-md bg-900 p-2 md:w-[35%]"
+                    className="bg-900 w-full rounded-md p-2 md:w-[35%]"
                     variants={itemVariants}
                 >
-                    <h3 className="mb-2 mt-2 uppercase text-primary md:mb-4">
-                        Our Services
-                    </h3>
+                    <div>
+                        <h3 className="mb-2 mt-2 text-2xl font-semibold md:mb-4">
+                            Information
+                        </h3>
+                        <div className="flex flex-col gap-1 text-sm font-semibold">
+                            <Link href={"/"}>Home</Link>
+                            <Link href={"/"}>Destination</Link>
+                            <Link href={"/"}>Packages</Link>
+                            <Link href={"/"}>Travel Guide</Link>
+                            <Link href={"/"}>Manage Your Booking</Link>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 className="mb-2 mt-4 text-2xl font-semibold">
+                            Quick Guide
+                        </h3>
+                        <div className="flex flex-col gap-1 text-sm font-semibold">
+                            <Link href={"/"}>FAQ</Link>
+                            <Link href={"/"}>How To</Link>
+                            <Link href={"/"}>Features</Link>
+                            <Link href={"/"}>Our Community</Link>
+                        </div>
+                    </div>
                 </motion.div>
 
                 {/* Contact information */}
                 <motion.div
-                    className="w-full rounded-md bg-900 p-2 md:w-[40%]"
+                    className="bg-900 w-full rounded-md p-2 md:w-[40%]"
                     variants={itemVariants}
                 >
-                    <h3 className="mb-4 mt-2 uppercase text-primary">
-                        contact info
-                    </h3>
-                    <div className="flex flex-col gap-2 md:gap-4">
+                    {/* Subscribe to newsletter */}
+                    <motion.div
+                        className="bg-900 w-full rounded-md p-2"
+                        variants={itemVariants}
+                    >
+                        <h3 className="mb-4 text-center text-2xl font-semibold uppercase text-primary md:mb-6">
+                            Subscribe to our newsletter & get latest news
+                        </h3>
+
+                        <form className="flex flex-col gap-3">
+                            <InputFlight
+                                type="email"
+                                placeholder="Enter your email"
+                            />
+                            <Button type="submit" className="w-fit">
+                                Subscribe
+                            </Button>
+                        </form>
+
+                    </motion.div>
+                    <div className="flex flex-col mt-2">
                         {ContactInformation.map((info, index) => {
                             return (
                                 <motion.button
                                     key={index}
-                                    className="flex items-center gap-5 rounded-md p-1 text-400 transition-all duration-300 hover:bg-800 hover:text-200"
+                                    className="hover:bg-800 hover:text-200 flex items-center gap-3 rounded-md p-1 text-primary transition-all duration-300"
                                     whileHover={{ x: 5 }}
                                 >
-                                    <span className="">{info.icon}</span>
-                                    <span className="text-start text-base">
+                                    <span className="rounded-full bg-gray-400 p-1">
+                                        {info.icon}
+                                    </span>
+                                    <span className="rounded-md bg-gray-400 p-1 text-start text-sm font-semibold">
                                         {info.content}
                                     </span>
                                 </motion.button>
@@ -111,43 +148,15 @@ const Footer = () => {
                         })}
                     </div>
                 </motion.div>
-
-                {/* Subscribe to our newsletter */}
-                <motion.div
-                    className="w-full rounded-md bg-900 p-2 md:w-[50%]"
-                    variants={itemVariants}
-                >
-                    <h3 className="mb-4 text-primary md:mb-8">
-                        Stay upto date with our news and insight.
-                    </h3>
-
-                    <form className="flex flex-col">
-                        <input
-                            type="email"
-                            id="email"
-                            required
-                            placeholder="Enter your email address"
-                            className="rounded-md bg-800 p-[0.5rem] transition-all duration-300 placeholder:text-base focus-within:ring-2 focus-within:ring-600"
-                        />
-                        <motion.button
-                            type="submit"
-                            className="mt-3 w-fit rounded-full bg-accent px-4 py-[0.45rem] text-base font-semibold uppercase text-black transition-all duration-300 hover:bg-secondary"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            Subscribe
-                        </motion.button>
-                    </form>
-                </motion.div>
             </motion.div>
 
             <motion.div
-                className="mb-2 mt-3 flex flex-col-reverse items-center justify-between gap-3 px-2 text-base text-300 md:mt-6 md:flex-row"
+                className="text-300 mb-2 mt-3 flex flex-col-reverse items-center justify-between gap-1 px-2 text-sm font-semibold md:mt-6 md:flex-row"
                 variants={itemVariants}
             >
-                <p className="mx-auto w-full text-start leading-6">
-                    &copy;{new Date().getFullYear()} Connex International
-                    Limited.All rights reserved
+                <p className="w-full text-center leading-6 md:text-start">
+                    &copy;{new Date().getFullYear()} TravelAir Limited.All
+                    rights reserved
                 </p>
 
                 <div className="flex gap-4 whitespace-nowrap md:justify-between">

@@ -4,17 +4,14 @@ const nav_elements = [
         href: "/",
     },
     {
-        name: "Flights",
-        href: "/service",
+        name: "Destinations",
+        href: "/destinations",
     },
     {
         name: "Packages",
         href: "/packages",
     },
-    // {
-    //     name: "About Us",
-    //     href: "/contact",
-    // },
+
     {
         name: "About Us",
         href: "/about-us",
