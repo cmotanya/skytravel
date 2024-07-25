@@ -90,6 +90,7 @@ const BookFlightForm = () => {
             name: "",
             email: "",
             phone: "",
+            passengers: "",
             travelClass: "economy",
         },
     });
@@ -204,13 +205,13 @@ const BookFlightForm = () => {
                     </p>
                     <form
                         onSubmit={form.handleSubmit(onSubmit)}
-                        className="mx-auto w-full md:w-[60%]"
+                        className="mx-auto w-full"
                     >
                         <motion.div
                             initial="hidden"
                             animate="visible"
                             variants={formVariants}
-                            className="grid grid-cols-1 gap-2"
+                            className="grid grid-cols-1 gap-2 md:grid-cols-2"
                         >
                             <FormField
                                 control={form.control}
@@ -395,6 +396,40 @@ const BookFlightForm = () => {
                                         >
                                             <FormMessage className="ml-1 block text-start" />
                                         </motion.div>
+                                    </FormItem>
+                                )}
+                            />
+
+                            <FormField
+                                control={form.control}
+                                name="passengers"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel className="sr-only">
+                                            Passengers
+                                        </FormLabel>
+                                        <FormControl>
+                                            <div className="relative">
+                                                <IconUser
+                                                    className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+                                                    size={18}
+                                                />
+                                                <Input
+                                                    type="number"
+                                                    placeholder="Passengers"
+                                                    className="pl-10 focus-visible:ring-offset-0"
+                                                    {...field}
+                                                    onChange={(e) =>
+                                                        field.onChange(
+                                                            parseInt(
+                                                                e.target.value
+                                                            )
+                                                        )
+                                                    }
+                                                />
+                                            </div>
+                                        </FormControl>
+                                        <FormMessage className="ml-1 block text-start" />
                                     </FormItem>
                                 )}
                             />

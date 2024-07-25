@@ -14,6 +14,7 @@ export const bookFlightSchema = z.object({
         .min(10, "Please enter a valid phone number!")
         .regex(/^\+?\d+$/, "Please enter a valid number!"),
     travelClass: z.enum(["economy", "premiumEconomy", "business", "first"]),
+    passengers: z.string().min(1, "At least one passenger is required"),
 });
 
 export type BookFlightSchema = z.infer<typeof bookFlightSchema>;
