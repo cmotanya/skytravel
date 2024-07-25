@@ -52,7 +52,10 @@ function AvailableSoon() {
                             transition={{ duration: 0.5, delay: 0.4 }}
                             className="w-1/2"
                         >
-                            <Button className="group relative mx-auto mt-4 flex w-full items-center gap-4 overflow-hidden rounded-full !bg-[#2135f1] py-6 font-semibold uppercase tracking-wide !text-background md:w-[225px]">
+                            <Button
+                                onClick={handleButtonClick}
+                                className="group relative mx-auto mt-4 flex w-full items-center gap-4 overflow-hidden rounded-full !bg-[#2135f1] py-6 font-semibold uppercase tracking-wide !text-background md:w-[225px]"
+                            >
                                 <span className="absolute right-2 z-20 group-active:text-black md:right-6 md:group-hover:text-black">
                                     go back to home
                                 </span>
