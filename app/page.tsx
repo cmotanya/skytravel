@@ -113,7 +113,7 @@ export default function Home() {
                     <div className="relative flex h-dvh w-screen flex-col items-center justify-center space-y-8 text-balance md:h-auto md:w-full">
                         <Image
                             src={
-                                "https://img.freepik.com/free-photo/closeup-shot-elephants-standing-near-lake-sunset_181624-29375.jpg?t=st=1721931673~exp=1721935273~hmac=97f3da17cad2ea0ee8ac7adb89d322aa1255297fc83bde5557b3f1b32bb23599&w=740"
+                                "https://img.freepik.com/premium-photo/african-cape-buffalo-africa_1048944-25738843.jpg?ga=GA1.1.1299587564.1710496540&semt=sph"
                             }
                             alt={heroImages[2].alt}
                             width={500}
