@@ -80,7 +80,20 @@ export default function Home() {
         },
     };
 
-    const imageVariants = {
+    const imageContainerVariants = {
+        hidden: { y: 50, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.5,
+                ease: [0.43, 0.13, 0.23, 0.96],
+                staggerChildren: 0.2,
+            },
+        },
+    };
+
+    const cardVariants = {
         hidden: { y: 50, opacity: 0 },
         visible: {
             y: 0,
@@ -232,11 +245,11 @@ export default function Home() {
                         initial="hidden"
                         animate="visible"
                         className="grid grid-cols-1 gap-4 md:grid-cols-4"
+                        variants={imageContainerVariants}
                     >
                         {heroImages.map((item, index) => (
                             <motion.div
                                 key={index}
-                                variants={imageVariants}
                                 whileHover={{ scale: 1.05 }}
                                 className="flex flex-row gap-2 overflow-hidden rounded-sm bg-[#b267fe] text-sm font-semibold text-primary"
                             >
@@ -247,7 +260,10 @@ export default function Home() {
                                     height={400}
                                     className="h-[11rem] w-1/2 object-cover object-center"
                                 />
-                                <div className="flex flex-col justify-around pt-2">
+                                <motion.div
+                                    variants={cardVariants}
+                                    className="flex flex-col justify-around pt-2"
+                                >
                                     <h4>{item.destination}</h4>
                                     <p>{item.description}</p>
                                     <>
@@ -266,7 +282,7 @@ export default function Home() {
                                             </span>
                                         )}
                                     </>
-                                </div>
+                                </motion.div>
                             </motion.div>
                         ))}
                     </motion.div>
