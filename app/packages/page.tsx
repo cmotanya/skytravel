@@ -1,7 +1,7 @@
 import React from "react";
 import AvailableSoon from "../available-soon";
 
-export const Page = () => {
+const Packages = () => {
     return (
         <section>
             <h1>Page</h1>
@@ -9,3 +9,5 @@ export const Page = () => {
         </section>
     );
 };
+
+export default Packages;

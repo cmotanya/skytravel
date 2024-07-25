@@ -1,7 +1,7 @@
 import React from "react";
 import AvailableSoon from "../available-soon";
 
-const About = () => {
+const AboutUs = () => {
     return (
         <section>
             <h1>About Us</h1>
@@ -10,4 +10,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default AboutUs;
