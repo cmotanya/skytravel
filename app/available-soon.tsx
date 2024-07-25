@@ -51,14 +51,14 @@ function AvailableSoon() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -50 }}
                             transition={{ duration: 0.5, delay: 0.4 }}
-                            className="w-[14rem]"
+                            className="w-[15.5rem]"
                         >
                             <Button
                                 onClick={handleButtonClick}
-                                className="group relative mx-auto mt-8 flex w-full items-center gap-4 overflow-hidden rounded-full !bg-[#2135f1] py-6 font-semibold uppercase tracking-wide !text-background md:w-[225px]"
+                                className="group relative mx-auto mt-8 flex w-full items-center gap-4 overflow-hidden rounded-full !bg-[#2135f1] py-6 font-semibold uppercase tracking-wide !text-background"
                             >
                                 <span className="absolute right-6 z-20 group-active:text-black md:group-hover:text-black">
-                                    go back to home
+                                    go to previous page
                                 </span>
                                 <div className="absolute inset-y-0 left-1 top-1/2 flex h-[calc(100%-0.5rem)] w-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full bg-primary-foreground pl-1 text-foreground transition-all duration-200 ease-in-out group-hover:bg-gray-200 group-active:w-[calc(100%-0.45rem)] md:group-hover:w-[calc(100%-0.45rem)]">
                                     <span className="absolute left-2 text-lg">
@@ -68,7 +68,7 @@ function AvailableSoon() {
                             </Button>
                         </motion.div>
                     </>
-                )}
+                )}``````
             </AnimatePresence>
         </div>
     );
