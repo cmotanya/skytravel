@@ -259,7 +259,9 @@ export default function Home() {
                     </motion.div>
 
                     <Button className="w-3/4 bg-[#1d3557] font-semibold uppercase md:w-auto">
-                        Explore All Destinations
+                        <Link href={"/destinations"}>
+                            Explore All Destinations
+                        </Link>
                     </Button>
                 </div>
             </div>
