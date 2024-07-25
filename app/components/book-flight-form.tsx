@@ -23,7 +23,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { motion } from "framer-motion";
+import { delay, motion, stagger } from "framer-motion";
 
 const BookFlightForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -39,8 +39,6 @@ const BookFlightForm = () => {
             opacity: 1,
             transition: {
                 duration: 0.5,
-                delayChildren: 0.2,
-                staggerChildren: 0.5,
             },
         },
     };
@@ -70,13 +68,45 @@ const BookFlightForm = () => {
             },
         },
     };
-    const confirmItemVariants = {
+    const buttonVariants = {
         hidden: { y: 20, opacity: 0 },
         visible: {
             y: 0,
             opacity: 1,
             duration: 0.5,
             ease: [0.43, 0.13, 0.23, 0.96],
+            transition: {
+                type: "spring",
+                damping: 8,
+                stiffness: 300,
+                delay: 0.8,
+            },
+        },
+    };
+
+    const confirmButtonVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: [0.43, 0.13, 0.23, 0.96],
+            transition: {
+                delay: 2.2,
+            },
+        },
+    };
+
+    const childVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                damping: 12,
+                stiffness: 200,
+            },
         },
     };
 
@@ -162,10 +192,7 @@ const BookFlightForm = () => {
                                 value: formData.travelClass,
                             },
                         ].map((item, index) => (
-                            <motion.p
-                                key={index}
-                                variants={confirmItemVariants}
-                            >
+                            <motion.p key={index} variants={childVariants}>
                                 <span className="font-semibold">
                                     {item.label}
                                 </span>{" "}
@@ -177,11 +204,16 @@ const BookFlightForm = () => {
                         ))}
                     </div>
 
-                    <div className="mt-4 flex w-[20rem] gap-6">
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={confirmButtonVariants}
+                        className="mt-4 flex w-[20rem] gap-6"
+                    >
                         <Button
                             onClick={handleConfirm}
                             disabled={isSubmitting}
-                            className="w-3/4 bg-green-700 hover:bg-green-600 font-semibold uppercase md:w-auto"
+                            className="w-3/4 bg-green-700 font-semibold uppercase hover:bg-green-600 md:w-auto"
                         >
                             {isSubmitting ? "Confirming..." : "Confirm Booking"}
                         </Button>
@@ -193,7 +225,7 @@ const BookFlightForm = () => {
                         >
                             Edit Details
                         </Button>
-                    </div>
+                    </motion.div>
                 </motion.div>
             ) : (
                 <Form {...form}>
@@ -471,13 +503,19 @@ const BookFlightForm = () => {
                             />
                         </motion.div>
 
-                        <Button
-                            type="submit"
-                            className="mt-4 w-full bg-[#e63946] md:w-auto"
-                            disabled={isSubmitting}
+                        <motion.div
+                            initial="hidden"
+                            animate="visible"
+                            variants={buttonVariants}
                         >
-                            Review Booking
-                        </Button>
+                            <Button
+                                type="submit"
+                                className="mt-4 w-full bg-[#e63946] md:w-auto"
+                                disabled={isSubmitting}
+                            >
+                                Review Booking
+                            </Button>
+                        </motion.div>
                     </form>
                 </Form>
             )}
