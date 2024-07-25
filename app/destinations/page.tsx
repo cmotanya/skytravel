@@ -3,7 +3,7 @@ import AvailableSoon from "../available-soon";
 
 const Destinations = () => {
     return (
-        <section className="h-dvh">
+        <section className="mb-16">
             <h1>Destinations</h1>
             <AvailableSoon />
         </section>
