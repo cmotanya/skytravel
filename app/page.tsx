@@ -250,9 +250,22 @@ export default function Home() {
                                 <div className="flex flex-col justify-around pt-2">
                                     <h4>{item.destination}</h4>
                                     <p>{item.description}</p>
-                                    <p className="w-fit rounded-md bg-gray-800 px-1 py-0.5 font-normal text-background">
-                                        {item.price}
-                                    </p>
+                                    <>
+                                        {item.discountedPrice ? (
+                                            <span className="flex justify-between pr-1">
+                                                <span className="w-fit rounded-md bg-gray-800 px-1 py-0.5 font-normal text-background">
+                                                    {`$${item.discountedPrice}`}
+                                                </span>
+                                                <span className="w-fit rounded-md bg-destructive px-1 py-0.5 font-normal text-background line-through">
+                                                    {`$${item.price}`}
+                                                </span>
+                                            </span>
+                                        ) : (
+                                            <span className="w-fit rounded-md bg-gray-800 px-1 py-0.5 font-normal text-background">
+                                                {`$${item.price}`}
+                                            </span>
+                                        )}
+                                    </>
                                 </div>
                             </motion.div>
                         ))}

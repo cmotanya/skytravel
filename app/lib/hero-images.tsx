@@ -14,6 +14,7 @@ export const heroImages = [
         description:
             "Experience the tranquility of Africa's largest lake. Perfect for fishing and water sports.",
         price: 299,
+        discountedPrice: 249,
     },
     {
         src: "https://images.pexels.com/photos/247447/pexels-photo-247447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -30,5 +31,6 @@ export const heroImages = [
         description:
             "Witness the incredible wildlife and experience the annual wildebeest migration.",
         price: 399,
+        discountedPrice: 239,
     },
 ];
