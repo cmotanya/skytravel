@@ -110,17 +110,17 @@ export default function Home() {
         <main className="min-h-dvh">
             <div className="pt-12">
                 <div className="relative grid items-center justify-center px-3 pb-14 text-center md:min-h-dvh md:grid-flow-col md:grid-cols-2 md:pb-3">
-                    {/* <Image
-                        src={
-                            "https://images.pexels.com/photos/20600909/pexels-photo-20600909/free-photo-of-emirates-airlines-airplane-at-departure.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        }
-                        alt={heroImages[2].alt}
-                        width={500}
-                        // fill
-                        height={500}
-                        className="absolute -z-10 hidden h-full w-full object-cover object-center md:block"
-                    /> */}
                     <div className="flex h-dvh w-screen flex-col items-center justify-center space-y-8 text-balance md:h-auto md:w-full">
+                        <Image
+                            src={
+                                "https://img.freepik.com/premium-photo/two-people-walking-with-elephant-background_1258-293752.jpg?w=900"
+                            }
+                            alt={heroImages[2].alt}
+                            // width={500}
+                            fill
+                            // height={500}
+                            className="absolute -z-10 block h-full w-full object-cover object-center md:hidden"
+                        />
                         <motion.h1
                             initial="hidden"
                             animate="visible"
