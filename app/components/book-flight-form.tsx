@@ -265,13 +265,7 @@ const BookFlightForm = () => {
                                                 />
                                             </div>
                                         </FormControl>
-                                        <motion.div
-                                            initial="hidden"
-                                            animate="visible"
-                                            variants={errorMessageVariants}
-                                        >
-                                            <FormMessage className="ml-1 block text-start" />
-                                        </motion.div>
+                                        <FormMessage className="ml-1 block text-start" />
                                     </FormItem>
                                 )}
                             />
@@ -297,13 +291,7 @@ const BookFlightForm = () => {
                                                 />
                                             </div>
                                         </FormControl>
-                                        <motion.div
-                                            initial="hidden"
-                                            animate="visible"
-                                            variants={errorMessageVariants}
-                                        >
-                                            <FormMessage className="ml-1 block text-start" />
-                                        </motion.div>
+                                        <FormMessage className="ml-1 block text-start" />
                                     </FormItem>
                                 )}
                             />
@@ -322,13 +310,7 @@ const BookFlightForm = () => {
                                                 field.onChange(date)
                                             }
                                         />
-                                        <motion.div
-                                            initial="hidden"
-                                            animate="visible"
-                                            variants={errorMessageVariants}
-                                        >
-                                            <FormMessage className="ml-1 block text-start" />
-                                        </motion.div>
+                                        <FormMessage className="ml-1 block text-start" />
                                     </FormItem>
                                 )}
                             />
@@ -354,13 +336,7 @@ const BookFlightForm = () => {
                                                 />
                                             </div>
                                         </FormControl>
-                                        <motion.div
-                                            initial="hidden"
-                                            animate="visible"
-                                            variants={errorMessageVariants}
-                                        >
-                                            <FormMessage className="ml-1 block text-start" />
-                                        </motion.div>
+                                        <FormMessage className="ml-1 block text-start" />
                                     </FormItem>
                                 )}
                             />
@@ -387,13 +363,7 @@ const BookFlightForm = () => {
                                                 />
                                             </div>
                                         </FormControl>
-                                        <motion.div
-                                            initial="hidden"
-                                            animate="visible"
-                                            variants={errorMessageVariants}
-                                        >
-                                            <FormMessage className="ml-1 block text-start" />
-                                        </motion.div>
+                                        <FormMessage className="ml-1 block text-start" />
                                     </FormItem>
                                 )}
                             />
@@ -420,13 +390,7 @@ const BookFlightForm = () => {
                                                 />
                                             </div>
                                         </FormControl>
-                                        <motion.div
-                                            initial="hidden"
-                                            animate="visible"
-                                            variants={errorMessageVariants}
-                                        >
-                                            <FormMessage className="ml-1 block text-start" />
-                                        </motion.div>
+                                        <FormMessage className="ml-1 block text-start" />
                                     </FormItem>
                                 )}
                             />
