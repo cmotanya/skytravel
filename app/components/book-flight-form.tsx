@@ -177,19 +177,19 @@ const BookFlightForm = () => {
                         ))}
                     </div>
 
-                    <div className="mt-4 w-[20rem] border-black border-2 flex gap-6">
+                    <div className="mt-4 flex w-[20rem] gap-6">
                         <Button
                             onClick={handleConfirm}
                             disabled={isSubmitting}
-                            className="w-3/4 bg-[#1d3557] font-semibold uppercase md:w-auto"
+                            className="w-3/4 bg-green-700 hover:bg-green-600 font-semibold uppercase md:w-auto"
                         >
                             {isSubmitting ? "Confirming..." : "Confirm Booking"}
                         </Button>
 
                         <Button
                             onClick={handleEdit}
-                            className="w-3/4 md:w-auto"
-                            variant={"destructive"}
+                            className="w-3/4 bg-[#c568d8] text-black md:w-auto"
+                            // variant={"destructive"}
                         >
                             Edit Details
                         </Button>
