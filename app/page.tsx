@@ -141,7 +141,7 @@ export default function Home() {
                             ))}
                         </motion.h1>
                         <motion.p
-                            className="font-semibold leading-7 text-background"
+                            className="leading-7 text-background md:font-semibold md:text-inherit"
                             initial="hidden"
                             animate="visible"
                             variants={charVariants}
