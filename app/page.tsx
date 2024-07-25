@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 import BookFlightForm from "./components/book-flight-form";
 import { IconArrowRight, IconLuggage } from "@tabler/icons-react";
 import Image from "next/image";
-import { heroImages } from "./lib/hero-images";
 import Link from "next/link";
 import { Merienda as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { splitStringUsingRegex } from "@/lib/splitStringUsingRegex";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { heroImages } from "./lib/hero-images";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -77,6 +77,14 @@ export default function Home() {
                 duration: 0.5,
                 ease: [0.43, 0.13, 0.23, 0.96],
             },
+        },
+    };
+
+    const imageVariants = {
+        hidden: { y: 50, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
         },
     };
 
@@ -208,7 +216,8 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="space-y-3 bg-[#e9c46a] p-2 md:mt-0">
+                {/* Explore Destinations */}
+                <div className="space-y-4 bg-[#f0e1ff] p-2 md:mt-0">
                     <h2 className="pl-3 text-3xl font-semibold">
                         Discover our Featured Destinations.
                     </h2>
@@ -219,18 +228,35 @@ export default function Home() {
                         a cultural city experience, we have something for
                         everyone. Let us inspire your next journey.
                     </p>
-                    <div className="grid grid-cols-1 gap-2 md:grid-cols-4">
-                        {heroImages.map((image) => (
-                            <Image
-                                key={image.src}
-                                src={image.src}
-                                alt={image.alt || "Featured destination image"}
-                                width={400}
-                                height={400}
-                                className="h-[14rem] w-full rounded-md object-cover object-center"
-                            />
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        className="grid grid-cols-1 gap-4 md:grid-cols-4"
+                    >
+                        {heroImages.map((item, index) => (
+                            <motion.div
+                                key={index}
+                                variants={imageVariants}
+                                whileHover={{ scale: 1.05 }}
+                                className="flex flex-row gap-2 overflow-hidden rounded-sm bg-[#b267fe] text-sm font-semibold text-primary"
+                            >
+                                <Image
+                                    src={item.src}
+                                    alt={item.alt}
+                                    width={400}
+                                    height={400}
+                                    className="h-[11rem] w-1/2 object-cover object-center"
+                                />
+                                <div className="flex flex-col justify-around pt-2">
+                                    <h4>{item.destination}</h4>
+                                    <p>{item.description}</p>
+                                    <p className="w-fit rounded-md bg-gray-800 px-1 py-0.5 font-normal text-background">
+                                        {item.price}
+                                    </p>
+                                </div>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
 
                     <Button className="w-3/4 bg-[#1d3557] font-semibold uppercase md:w-auto">
                         Explore All Destinations
