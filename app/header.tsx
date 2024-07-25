@@ -29,10 +29,10 @@ const Header = () => {
     return (
         <header
             className={cn(
-                "duration-400 fixed z-[9999] flex h-20 w-full items-center justify-between px-5 transition-colors",
+                "duration-400 fixed z-[1000] flex h-20 w-full items-center justify-between px-5 transition-colors",
                 hasScrolled
-                    ? "bg-[#457b9d] shadow-2xl"
-                    : "bg-[#1d3557] text-gray-50"
+                    ? "bg-[#2135f1] text-background shadow-2xl"
+                    : "bg-[#464bcd] text-background"
             )}
         >
             <Link href="/">TravelAir</Link>

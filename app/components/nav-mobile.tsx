@@ -16,29 +16,18 @@ const MobileNav = () => {
     const [isOpen, setIsOpen] = useState(false);
     const navRef = useRef<HTMLElement>(null);
 
-    // toggles the state of the open indicator based on the provided index
-    const handleToggle = (index: number) => {
-        setOpenIndicator(openIndicator === index ? null : index);
-    };
-
     // toggles the state of the menu
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
 
     // Updates the active link and open indicators based on the provided href and index
-    const handleLinkClick = (href: string, index: number) => {
+    const handleClick = (href: string, index: number) => {
         setActiveLink(href);
 
         if (openIndicator !== index) {
             setOpenIndicator(null);
         }
-    };
-
-    const handleSubItemClick = (href: string) => {
-        setActiveLink(href);
-        setOpenIndicator(null); // Close the sub menu
-        toggleMenu(); // Close the entire mobile menu
     };
 
     useEffect(() => {
@@ -114,9 +103,15 @@ const MobileNav = () => {
     };
 
     return (
-        <div className="fixed right-5 top-5 z-[1000] block text-300 md:hidden">
+        <div className="text-300 fixed right-5 top-3 z-[1000] block md:hidden">
             <HamburgerMenu onclick={toggleMenu} isOpen={isOpen} />
 
+            {isOpen && (
+                <div
+                    className="fixed inset-0 z-[999] bg-gray-800/50 backdrop-blur-sm"
+                    onClick={toggleMenu}
+                ></div>
+            )}
             <AnimatePresence>
                 {isOpen && (
                     <motion.nav
@@ -127,13 +122,13 @@ const MobileNav = () => {
                         variants={navVariants}
                         aria-label="Mobile Navigation"
                         className={cn(
-                            "fixed -right-0 top-0 flex h-dvh w-full flex-col justify-between overflow-y-auto bg-900 text-xl",
+                            "fixed -right-2 top-[5.5rem] z-[1000] mr-2 flex h-auto w-3/4 flex-col justify-between overflow-y-auto rounded-lg bg-gray-800 text-xl ring-4 ring-gray-600 ring-offset-2",
                             isOpen ? "right-0" : "-right-full"
                         )}
                     >
                         <div className="flex h-full w-full flex-col">
                             <motion.ul
-                                className="h-1/2 min-h-[60%] w-full flex-grow gap-3 overflow-hidden overflow-y-auto px-2 pb-4 pt-[4rem]"
+                                className="h-1/2 min-h-[60%] w-full flex-grow gap-3 overflow-hidden overflow-y-auto px-2 pb-4 pt-[2rem]"
                                 variants={{
                                     open: {
                                         transition: {
@@ -152,11 +147,11 @@ const MobileNav = () => {
                                             variants={itemVariants}
                                             className="relative my-3 w-full px-2"
                                         >
-                                            <li className="flex w-full items-center justify-between rounded-md bg-800 hover:bg-700">
+                                            <li className="bg-800 hover:bg-700 flex w-full items-center justify-between rounded-md">
                                                 <Link
                                                     href={item.href}
-                                                    onClick={(e) => {
-                                                        handleLinkClick(
+                                                    onClick={() => {
+                                                        handleClick(
                                                             item.href,
                                                             index
                                                         );
@@ -165,12 +160,10 @@ const MobileNav = () => {
                                                         "flex w-full items-center justify-between rounded-md p-4",
                                                         isActive
                                                             ? "bg-primary"
-                                                            : "bg-800 hover:bg-accent"
+                                                            : "hover:bg-gray-900"
                                                     )}
                                                 >
                                                     {item.name}
-
-                                                    {/* indicators */}
                                                 </Link>
                                             </li>
                                         </motion.div>

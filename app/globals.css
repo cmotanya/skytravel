@@ -96,4 +96,12 @@
             @apply text-sm;
         }
     }
+    .no-scroll {
+        @apply overflow-hidden;
+    }
+
+    .backdrop-blur-sm {
+        backdrop-filter: blur(4px);
+        --webkit-backdrop-filter: blur(4px);
+    }
 }
