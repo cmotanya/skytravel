@@ -90,7 +90,7 @@ const BookFlightForm = () => {
             name: "",
             email: "",
             phone: "",
-            passengers: "",
+            passengers: 1,
             travelClass: "economy",
         },
     });
