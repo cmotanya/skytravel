@@ -50,7 +50,7 @@ const Footer = () => {
                             TravelAir
                         </span>
                         <motion.p
-                            className="text-400 text-balance text-sm font-semibold"
+                            className="text-400 text-balance text-sm"
                             variants={itemVariants}
                         >
                             At TravelAir, we are committed to making your travel
@@ -86,7 +86,7 @@ const Footer = () => {
                         <h3 className="mb-2 mt-2 text-2xl font-semibold md:mb-4">
                             Information
                         </h3>
-                        <div className="flex flex-col gap-1 text-sm font-semibold">
+                        <div className="flex flex-col gap-1 text-sm">
                             <Link href={"/"}>Home</Link>
                             <Link href={"/"}>Destination</Link>
                             <Link href={"/"}>Packages</Link>
@@ -99,7 +99,7 @@ const Footer = () => {
                         <h3 className="mb-2 mt-4 text-2xl font-semibold">
                             Quick Guide
                         </h3>
-                        <div className="flex flex-col gap-1 text-sm font-semibold">
+                        <div className="flex flex-col gap-1 text-sm">
                             <Link href={"/"}>FAQ</Link>
                             <Link href={"/"}>How To</Link>
                             <Link href={"/"}>Features</Link>

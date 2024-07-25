@@ -75,7 +75,6 @@ const BookFlightForm = () => {
         visible: {
             y: 0,
             opacity: 1,
-            type: "tween",
             duration: 0.5,
             ease: [0.43, 0.13, 0.23, 0.96],
         },
@@ -143,7 +142,7 @@ const BookFlightForm = () => {
                     variants={confirmContainerVariants}
                     className="text-start"
                 >
-                    <h2 className="my-2 font-semibold uppercase">
+                    <h2 className="my-2 text-2xl font-semibold uppercase">
                         Confirm Your Booking.
                     </h2>
 
@@ -178,7 +177,7 @@ const BookFlightForm = () => {
                         ))}
                     </div>
 
-                    <div className="mt-4 flex gap-6">
+                    <div className="mt-4 w-[20rem] border-black border-2 flex gap-6">
                         <Button
                             onClick={handleConfirm}
                             disabled={isSubmitting}

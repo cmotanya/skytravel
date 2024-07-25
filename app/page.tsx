@@ -74,7 +74,6 @@ export default function Home() {
             opacity: 1,
             y: 0,
             transition: {
-                type: "tween",
                 duration: 0.5,
                 ease: [0.43, 0.13, 0.23, 0.96],
             },
@@ -110,7 +109,7 @@ export default function Home() {
                             ))}
                         </motion.h1>
                         <motion.p
-                            className="leading-7 md:font-semibold"
+                            className="leading-7"
                             initial="hidden"
                             animate="visible"
                             variants={charVariants}
