@@ -234,7 +234,7 @@ export default function Home() {
                     {/* Form */}
                     <div
                         id="form"
-                        className="flex w-full flex-col items-center justify-center px-2 md:px-0"
+                        className="flex w-full flex-col items-center justify-center px-2 pt-10 md:px-0"
                     >
                         <BookFlightForm />
                     </div>
