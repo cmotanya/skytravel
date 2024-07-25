@@ -109,16 +109,17 @@ export default function Home() {
     return (
         <main className="min-h-dvh">
             <div className="pt-12">
-                <div className="relative grid items-center justify-center px-3 pb-14 text-center md:min-h-dvh md:grid-flow-col md:grid-cols-2 md:pb-3">
-                    <div className="flex h-dvh w-screen flex-col items-center justify-center space-y-8 text-balance md:h-auto md:w-full">
+                <div className="grid items-center justify-center px-3 pb-14 text-center md:min-h-dvh md:grid-flow-col md:grid-cols-2 md:pb-3">
+                    <div className="relative flex h-dvh w-screen flex-col items-center justify-center space-y-8 text-balance md:h-auto md:w-full">
                         <Image
                             src={
-                                "https://img.freepik.com/premium-photo/two-people-walking-with-elephant-background_1258-293752.jpg?w=900"
+                                "https://img.freepik.com/free-photo/closeup-shot-elephants-standing-near-lake-sunset_181624-29375.jpg?t=st=1721931673~exp=1721935273~hmac=97f3da17cad2ea0ee8ac7adb89d322aa1255297fc83bde5557b3f1b32bb23599&w=740"
                             }
                             alt={heroImages[2].alt}
-                            // width={500}
-                            fill
-                            // height={500}
+                            width={500}
+                            // fill
+                            height={500}
+                            priority
                             className="absolute -z-10 block h-full w-full object-cover object-center md:hidden"
                         />
                         <motion.h1
@@ -140,7 +141,7 @@ export default function Home() {
                             ))}
                         </motion.h1>
                         <motion.p
-                            className="leading-7"
+                            className="font-semibold leading-7 text-background"
                             initial="hidden"
                             animate="visible"
                             variants={charVariants}
