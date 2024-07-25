@@ -13,8 +13,8 @@ const nav_elements = [
     },
 
     {
-        name: "About Us",
-        href: "/about-us",
+        name: "Contact",
+        href: "/contact",
     },
 ];
 

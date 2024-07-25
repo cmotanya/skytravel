@@ -1,7 +1,7 @@
 import React from "react";
 import AvailableSoon from "../available-soon";
 
-const AboutUs = () => {
+const Contact = () => {
     return (
         <section className="min-h-dvh md:mb-16">
             <h1>About Us</h1>
@@ -10,4 +10,4 @@ const AboutUs = () => {
     );
 };
 
-export default AboutUs;
+export default Contact;
