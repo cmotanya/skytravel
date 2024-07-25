@@ -139,7 +139,7 @@ export default function Home() {
                                     onMouseLeave={() =>
                                         setIsMouseEntered(false)
                                     }
-                                    className="mx-auto flex w-full items-center gap-4 rounded-full h-[48px] font-semibold uppercase tracking-wide ring-1 ring-[#1d3557] md:w-auto"
+                                    className="mx-auto flex h-[48px] w-full items-center gap-4 rounded-full font-semibold uppercase tracking-wide ring-1 ring-[#1d3557] md:w-auto"
                                 >
                                     <Link href="#form">
                                         <span className="relative overflow-hidden">
@@ -181,7 +181,7 @@ export default function Home() {
                                 variants={buttonVariants}
                                 className="w-full"
                             >
-                                <Button className="group relative mx-auto flex w-full items-center gap-4 overflow-hidden rounded-full bg-[#1d3557] py-6 font-semibold uppercase tracking-wide text-white">
+                                <Button className="group relative mx-auto flex w-full items-center gap-4 overflow-hidden rounded-full bg-[#1d3557] py-6 font-semibold uppercase tracking-wide text-white md:w-[225px]">
                                     <span className="absolute left-8 z-20 group-hover:text-black md:left-3">
                                         Contact Us Today
                                     </span>
