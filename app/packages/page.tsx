@@ -1,13 +1,11 @@
 import React from "react";
 import AvailableSoon from "../available-soon";
 
-const About = () => {
+export const Page = () => {
     return (
         <section>
-            <h1>About Us</h1>
+            <h1>Page</h1>
             <AvailableSoon />
         </section>
     );
 };
-
-export default About;
