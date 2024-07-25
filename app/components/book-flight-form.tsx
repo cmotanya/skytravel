@@ -187,6 +187,7 @@ const BookFlightForm = () => {
                             { label: "Name", value: formData.name },
                             { label: "Email", value: formData.email },
                             { label: "Phone", value: formData.phone },
+                            { label: "Passengers", value: formData.passengers },
                             {
                                 label: "Travel Class",
                                 value: formData.travelClass,

@@ -1,6 +1,5 @@
 "use client";
 
-import { IconPlus } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -87,21 +86,6 @@ const MobileNav = () => {
         },
     };
 
-    const subItemVariants = {
-        hidden: {
-            opacity: 0,
-            y: -10,
-        },
-        visible: (index: number) => ({
-            opacity: 1,
-            y: 0,
-            transition: {
-                delay: index * 0.1,
-                duration: 0.3,
-            },
-        }),
-    };
-
     return (
         <div className="text-300 fixed right-5 top-3 z-[1000] block md:hidden">
             <HamburgerMenu onclick={toggleMenu} isOpen={isOpen} />
@@ -143,7 +127,7 @@ const MobileNav = () => {
                                     return (
                                         <motion.div
                                             role="menu"
-                                            key={item.href}
+                                            key={index}
                                             variants={itemVariants}
                                             className="relative my-3 w-full px-2"
                                         >

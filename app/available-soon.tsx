@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import NotFoundSvg from "../public/images/not-found-icon.svg";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconArrowLeft } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
+import AvailableSoonIcon from "../public/images/available-soon-icon.svg";
+import { Button } from "@/components/ui/button";
 
-function NotFound() {
+function AvailableSoon() {
     const [isExiting, setIsExiting] = useState(false);
     const router = useRouter();
 
@@ -19,29 +20,28 @@ function NotFound() {
     };
 
     return (
-        <div className="flex min-h-dvh flex-col items-center justify-center overflow-hidden bg-gray-900 px-2 text-center text-gray-300 md:px-0">
+        <div className="flex flex-col items-center justify-center overflow-hidden px-2 text-center md:px-0">
             <AnimatePresence>
                 {!isExiting && (
                     <>
                         <motion.div
-                            className="pb-10"
+                            className="my-auto md:-mt-[2rem]"
                             initial={{ opacity: 0, y: 100 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, x: -100 }}
                             transition={{ duration: 0.5 }}
                         >
-                            <NotFoundSvg />
+                            <AvailableSoonIcon />
                         </motion.div>
                         <motion.div
-                            className="pb-10"
+                            className="-mt-[8rem]"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0, x: 100 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                         >
-                            <p className="text-xl">
-                                The page you&apos;re looking for could not be
-                                found!
+                            <p className="text-base font-semibold">
+                                Sorry, this page has not yet been added.
                             </p>
                         </motion.div>
 
@@ -50,13 +50,18 @@ function NotFound() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -50 }}
                             transition={{ duration: 0.5, delay: 0.4 }}
+                            className="w-1/2"
                         >
-                            <button
-                                onClick={handleButtonClick}
-                                className="flex items-center gap-2 rounded-lg bg-gray-800/50 px-4 py-3 text-lg text-gray-400 transition duration-300 ease-in-out hover:bg-gray-800"
-                            >
-                                <IconArrowLeft /> Go Back
-                            </button>
+                            <Button className="group relative mx-auto mt-4 flex w-full items-center gap-4 overflow-hidden rounded-full !bg-[#2135f1] py-6 font-semibold uppercase tracking-wide !text-background md:w-[225px]">
+                                <span className="absolute right-2 z-20 group-active:text-black md:right-6 md:group-hover:text-black">
+                                    go back to home
+                                </span>
+                                <div className="absolute inset-y-0 left-1 top-1/2 flex h-[calc(100%-0.5rem)] w-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full bg-primary-foreground pl-1 text-foreground transition-all duration-200 ease-in-out group-hover:bg-gray-200 group-active:w-[calc(100%-0.45rem)] md:group-hover:w-[calc(100%-0.45rem)]">
+                                    <span className="absolute left-2 text-lg">
+                                        <IconArrowLeft />
+                                    </span>
+                                </div>
+                            </Button>
                         </motion.div>
                     </>
                 )}
@@ -65,4 +70,4 @@ function NotFound() {
     );
 }
 
-export default NotFound;
+export default AvailableSoon;
