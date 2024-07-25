@@ -61,7 +61,7 @@
 
 @layer base {
     * {
-        @apply scroll-pt-24 !scroll-smooth border-border;
+        @apply scroll-pt-20 !scroll-smooth border-border;
     }
     body {
         @apply bg-background text-foreground;
