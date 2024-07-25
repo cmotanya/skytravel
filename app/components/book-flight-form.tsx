@@ -79,7 +79,7 @@ const BookFlightForm = () => {
                 type: "spring",
                 damping: 8,
                 stiffness: 300,
-                delay: 0.8,
+                delay: 0.5,
             },
         },
     };
@@ -213,7 +213,7 @@ const BookFlightForm = () => {
                         <Button
                             onClick={handleConfirm}
                             disabled={isSubmitting}
-                            className="w-3/4 bg-green-700 font-semibold uppercase hover:bg-green-600 md:w-auto"
+                            className="w-[20rem] bg-green-700 font-semibold uppercase hover:bg-green-600 md:w-auto"
                         >
                             {isSubmitting ? "Confirming..." : "Confirm Booking"}
                         </Button>
