@@ -6,14 +6,15 @@ import { useEffect, useRef, useState } from "react";
 import nav_elements from "../lib/navigation";
 import HamburgerMenu from "./nav-hamburger-menu";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 const MobileNav = () => {
-    const [openIndicator, setOpenIndicator] = useState<number | null>(null);
     const [activeLink, setActiveLink] = useState<string | null>(
         nav_elements[0].href
     );
     const [isOpen, setIsOpen] = useState(false);
     const navRef = useRef<HTMLElement>(null);
+    const router = useRouter();
 
     // toggles the state of the menu
     const toggleMenu = () => {
@@ -23,10 +24,8 @@ const MobileNav = () => {
     // Updates the active link and open indicators based on the provided href and index
     const handleClick = (href: string, index: number) => {
         setActiveLink(href);
-
-        if (openIndicator !== index) {
-            setOpenIndicator(null);
-        }
+        setIsOpen(false);
+        router.push(href);
     };
 
     useEffect(() => {
@@ -36,23 +35,6 @@ const MobileNav = () => {
             document.body.classList.remove("no-scroll");
         }
     }, [isOpen]);
-
-    // Handles click event when it occurs outside of the navRef element
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (
-                navRef.current &&
-                !navRef.current.contains(event.target as Node)
-            ) {
-                setOpenIndicator(null);
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
 
     // Variants for the mobile navigation
     const navVariants = {
