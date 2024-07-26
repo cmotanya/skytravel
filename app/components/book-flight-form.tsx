@@ -231,7 +231,7 @@ const BookFlightForm = () => {
             ) : (
                 <Form {...form}>
                     <p
-                        className={`mb-2 font-semibold ${setShowConfirmation} ? 'hidden' ? ''`}
+                        className={`mb-2 rounded-md bg-gray-800 p-1 text-gray-200 ${setShowConfirmation} ? 'hidden' ? ''`}
                     >
                         Book your flights with us today.
                     </p>

@@ -9,7 +9,7 @@ export const BlurImageOnLoadDesktop: React.FC<BlurImageOnLoadProps> = ({
 }) => {
     return (
         <>
-            <div className="absolute -z-10 h-dvh w-full md:bg-gray-900/70"></div>
+            <div className="absolute -z-10 h-dvh w-full md:bg-gray-900/50"></div>
             <div className="hidden md:block">
                 <Image
                     src={src}
@@ -29,7 +29,7 @@ export const BlurImageOnLoadMobile: React.FC<BlurImageOnLoadProps> = ({
 }) => {
     return (
         <>
-            <div className="absolute -z-10 h-dvh w-full bg-gray-900/70"></div>
+            <div className="absolute -z-10 h-dvh w-full bg-gray-900/70 md:bg-transparent"></div>
             <div className="block md:hidden">
                 <Image
                     src={src}

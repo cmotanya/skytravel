@@ -132,7 +132,7 @@ export default function Home() {
                                 animate="visible"
                                 variants={containerVariants}
                                 className={cn(
-                                    "bg-gradient-to-r from-red-600 to-blue-800 bg-clip-text font-sans text-4xl font-bold text-transparent md:text-5xl",
+                                    "bg-gradient-to-r from-gray-400 to-rose-500 bg-clip-text font-sans text-4xl font-bold text-transparent md:text-5xl",
                                     fontSans.variable
                                 )}
                             >
