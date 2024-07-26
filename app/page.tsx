@@ -14,7 +14,6 @@ import { heroImages } from "./lib/hero-images";
 
 import CarouselMobile from "./components/carouselMobile";
 import CarouselDesktop from "./components/carouselDesktop";
-import TopArrowButton from "./components/top";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -116,14 +115,14 @@ export default function Home() {
                 <div className="pb-14 md:relative md:pb-0">
                     <div className="grid items-center justify-center text-center md:min-h-dvh md:grid-flow-col md:grid-cols-2">
                         <CarouselDesktop />
-                        <div className="relative flex h-dvh w-full flex-col items-center justify-center space-y-8 text-balance md:h-auto md:w-full">
+                        <div className="relative flex h-dvh w-full flex-col items-center justify-center text-balance md:h-auto md:w-full">
                             <CarouselMobile />
                             <motion.h1
                                 initial="hidden"
                                 animate="visible"
                                 variants={containerVariants}
                                 className={cn(
-                                    "bg-gradient-to-r from-gray-400 to-rose-500 bg-clip-text font-sans text-4xl font-bold text-transparent md:text-5xl",
+                                    "bg-gradient-to-r from-gray-400 to-rose-500 bg-clip-text pb-8 font-sans text-4xl font-bold text-transparent md:text-5xl",
                                     fontSans.variable
                                 )}
                             >
@@ -302,7 +301,6 @@ export default function Home() {
                     </Button>
                 </div>
             </div>
-            <TopArrowButton />
         </main>
     );
 }
