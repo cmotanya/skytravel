@@ -5,7 +5,6 @@ import Header from "./header";
 import Footer from "./footer";
 import { ThemeProvider } from "./components/theme-provider";
 import { cn } from "@/lib/utils";
-import TopArrowButton from "./components/top";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -40,7 +39,6 @@ export default function RootLayout({
                 >
                     <Header />
                     {children}
-                    <TopArrowButton />
                     <Footer />
                 </ThemeProvider>
             </body>
