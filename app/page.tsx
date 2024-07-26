@@ -11,6 +11,10 @@ import { splitStringUsingRegex } from "@/lib/splitStringUsingRegex";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { heroImages } from "./lib/hero-images";
+import {
+    BlurImageOnLoadDesktop,
+    BlurImageOnLoadMobile,
+} from "./components/dynamic-blurImage";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -107,136 +111,138 @@ export default function Home() {
     });
 
     return (
-        <main className="min-h-dvh">
+        <main className="z-[999] min-h-dvh">
             <div className="pt-12">
-                <div className="grid items-center justify-center px-3 pb-14 text-center md:min-h-dvh md:grid-flow-col md:grid-cols-2 md:pb-3">
-                    <div className="relative flex h-dvh w-screen flex-col items-center justify-center space-y-8 text-balance md:h-auto md:w-full">
-                        <Image
-                            src={
-                                "https://img.freepik.com/premium-photo/african-cape-buffalo-africa_1048944-25738843.jpg?ga=GA1.1.1299587564.1710496540&semt=sph"
-                            }
-                            alt={heroImages[2].alt}
-                            width={500}
-                            // fill
-                            height={500}
-                            priority
-                            className="absolute -z-10 block h-full w-full object-cover object-center md:hidden"
-                        />
-                        <motion.h1
-                            initial="hidden"
-                            animate="visible"
-                            variants={containerVariants}
-                            className={cn(
-                                "bg-gradient-to-r from-red-600 to-blue-800 bg-clip-text font-sans text-4xl font-bold text-transparent md:text-5xl",
-                                fontSans.variable
-                            )}
-                        >
-                            {headingChar.map((char, index) => (
-                                <motion.span
-                                    key={index}
-                                    variants={charVariants}
-                                >
-                                    {char}
-                                </motion.span>
-                            ))}
-                        </motion.h1>
-                        <motion.p
-                            className="leading-7 text-background md:font-semibold md:text-inherit"
-                            initial="hidden"
-                            animate="visible"
-                            variants={charVariants}
-                        >
-                            Explore some of the most beautiful and exotic
-                            locations around the world. Whether you&apos;re
-                            looking for a relaxing beach getaway, an adventurous
-                            mountain hike, or a cultural city experience, we
-                            have something for everyone. Let us inspire your
-                            next journey.
-                        </motion.p>
+                <div className="pb-14 md:relative md:pb-3">
+                    <BlurImageOnLoadDesktop
+                        src={
+                            "https://images.unsplash.com/photo-1496644256288-2bb0a65f32f6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        }
+                    />
+                    <div className="grid items-center justify-center text-center md:min-h-dvh md:grid-flow-col md:grid-cols-2">
+                        <div className="relative flex h-dvh w-full flex-col items-center justify-center space-y-8 text-balance md:h-auto md:w-full">
+                            <BlurImageOnLoadMobile
+                                src={
+                                    "https://images.unsplash.com/photo-1496644256288-2bb0a65f32f6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                }
+                            />
 
-                        {/* Button Component */}
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={buttonContainerVariants}
-                            className="flex w-3/4 flex-col gap-4 pb-6 pt-10 md:flex-row"
-                        >
-                            <motion.div variants={buttonVariants}>
-                                <Button
-                                    asChild
-                                    variant={"outline"}
-                                    onMouseEnter={() => setIsMouseEntered(true)}
-                                    onMouseLeave={() =>
-                                        setIsMouseEntered(false)
-                                    }
-                                    className="mx-auto flex h-[48px] w-full items-center gap-4 rounded-full font-semibold uppercase tracking-wide ring-1 ring-[#1d3557] md:w-auto"
-                                >
-                                    <Link href="#form">
-                                        <span className="relative overflow-hidden">
-                                            {splitStringUsingRegex(
-                                                "Book Your destination"
-                                            ).map((char, index) => (
-                                                <span
-                                                    key={index}
-                                                    className="relative overflow-hidden"
-                                                >
-                                                    <span
-                                                        style={getTransformStyle(
-                                                            isMouseEntered,
-                                                            index
-                                                        )}
-                                                        className="relative whitespace-pre"
-                                                    >
-                                                        {char}
-                                                    </span>
-                                                    <span
-                                                        style={getTransformStyle(
-                                                            isMouseEntered,
-                                                            index
-                                                        )}
-                                                        className="absolute left-0 top-full"
-                                                    >
-                                                        {char}
-                                                    </span>
-                                                </span>
-                                            ))}{" "}
-                                        </span>
-                                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground text-foreground">
-                                            <IconLuggage />
-                                        </span>
-                                    </Link>
-                                </Button>
-                            </motion.div>
-                            <motion.div
-                                variants={buttonVariants}
-                                className="w-full"
+                            <motion.h1
+                                initial="hidden"
+                                animate="visible"
+                                variants={containerVariants}
+                                className={cn(
+                                    "bg-gradient-to-r from-red-600 to-blue-800 bg-clip-text font-sans text-4xl font-bold text-transparent md:text-5xl",
+                                    fontSans.variable
+                                )}
                             >
-                                <Button className="group relative mx-auto w-full overflow-hidden rounded-full !bg-[#2135f1] py-6 font-semibold uppercase tracking-wide !text-background md:w-[225px]">
-                                    <Link
-                                        href="/contact"
-                                        className="flex w-full items-center"
+                                {headingChar.map((char, index) => (
+                                    <motion.span
+                                        key={index}
+                                        variants={charVariants}
                                     >
-                                        <span className="absolute left-8 z-20 group-active:text-black md:left-3 md:group-hover:text-black">
-                                            Contact Us Today
-                                        </span>
-                                        <div className="absolute inset-y-0 right-1 top-1/2 flex h-[calc(100%-0.5rem)] w-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full bg-primary-foreground pl-1 text-foreground transition-all duration-200 ease-in-out group-hover:bg-gray-200 group-active:w-[calc(100%-0.45rem)] md:group-hover:w-[calc(100%-0.45rem)]">
-                                            <span className="absolute right-2 text-lg">
-                                                <IconArrowRight />
+                                        {char}
+                                    </motion.span>
+                                ))}
+                            </motion.h1>
+                            <motion.p
+                                className="leading-7 text-background"
+                                initial="hidden"
+                                animate="visible"
+                                variants={charVariants}
+                            >
+                                Explore some of the most beautiful and exotic
+                                locations around the world. Whether you&apos;re
+                                looking for a relaxing beach getaway, an
+                                adventurous mountain hike, or a cultural city
+                                experience, we have something for everyone. Let
+                                us inspire your next journey.
+                            </motion.p>
+                            {/* Button Component */}
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={buttonContainerVariants}
+                                className="flex w-3/4 flex-col gap-4 pb-6 pt-10 md:flex-row"
+                            >
+                                <motion.div variants={buttonVariants}>
+                                    <Button
+                                        asChild
+                                        variant={"outline"}
+                                        onMouseEnter={() =>
+                                            setIsMouseEntered(true)
+                                        }
+                                        onMouseLeave={() =>
+                                            setIsMouseEntered(false)
+                                        }
+                                        className="mx-auto flex h-[48px] w-full items-center gap-4 rounded-full font-semibold uppercase tracking-wide ring-1 ring-[#1d3557] md:w-auto"
+                                    >
+                                        <Link href="#form">
+                                            <span className="relative overflow-hidden">
+                                                {splitStringUsingRegex(
+                                                    "Book Your destination"
+                                                ).map((char, index) => (
+                                                    <span
+                                                        key={index}
+                                                        className="relative overflow-hidden"
+                                                    >
+                                                        <span
+                                                            style={getTransformStyle(
+                                                                isMouseEntered,
+                                                                index
+                                                            )}
+                                                            className="relative whitespace-pre"
+                                                        >
+                                                            {char}
+                                                        </span>
+                                                        <span
+                                                            style={getTransformStyle(
+                                                                isMouseEntered,
+                                                                index
+                                                            )}
+                                                            className="absolute left-0 top-full"
+                                                        >
+                                                            {char}
+                                                        </span>
+                                                    </span>
+                                                ))}{" "}
                                             </span>
-                                        </div>
-                                    </Link>
-                                </Button>
+                                            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground text-foreground">
+                                                <IconLuggage />
+                                            </span>
+                                        </Link>
+                                    </Button>
+                                </motion.div>
+                                <motion.div
+                                    variants={buttonVariants}
+                                    className="w-full"
+                                >
+                                    <Button className="group relative mx-auto w-full overflow-hidden rounded-full !bg-[#2135f1] py-6 font-semibold uppercase tracking-wide !text-background md:w-[225px]">
+                                        <Link
+                                            href="/contact"
+                                            className="flex w-full items-center"
+                                        >
+                                            <span className="absolute left-8 z-20 group-active:text-black md:left-3 md:group-hover:text-black">
+                                                Contact Us Today
+                                            </span>
+                                            <div className="absolute inset-y-0 right-1 top-1/2 flex h-[calc(100%-0.5rem)] w-10 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full bg-primary-foreground pl-1 text-foreground transition-all duration-200 ease-in-out group-hover:bg-gray-200 group-active:w-[calc(100%-0.45rem)] md:group-hover:w-[calc(100%-0.45rem)]">
+                                                <span className="absolute right-2 text-lg">
+                                                    <IconArrowRight />
+                                                </span>
+                                            </div>
+                                        </Link>
+                                    </Button>
+                                </motion.div>
                             </motion.div>
-                        </motion.div>
-                    </div>
-
-                    {/* Form */}
-                    <div
-                        id="form"
-                        className="flex w-full flex-col items-center justify-center px-2 pt-10 md:px-0"
-                    >
-                        <BookFlightForm />
+                        </div>
+                        {/* Form */}
+                        <div
+                            id="form"
+                            className="flex w-full flex-col items-center justify-center px-2 pt-10 md:px-0"
+                        >
+                            <BookFlightForm />
+                        </div>
                     </div>
                 </div>
 
