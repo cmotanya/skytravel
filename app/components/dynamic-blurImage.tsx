@@ -14,10 +14,9 @@ export const BlurImageOnLoadDesktop: React.FC<BlurImageOnLoadProps> = ({
                 <Image
                     src={src}
                     alt="image"
-                    // blurDataURL={blurDataURL}
-                    // placeholder="blur"
                     className="absolute -z-50 block h-full w-full object-cover"
                     layout="fill"
+                    sizes="(100vw, 100vh)"
                 />
             </div>
         </>
@@ -34,6 +33,8 @@ export const BlurImageOnLoadMobile: React.FC<BlurImageOnLoadProps> = ({
                 <Image
                     src={src}
                     alt="image"
+                    fill
+                    sizes="(100vw, 100vh)"
                     // blurDataURL={blurDataURL}
                     // placeholder="blur"
                     className="absolute -z-50 block h-full w-full object-cover"

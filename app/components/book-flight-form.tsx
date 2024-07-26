@@ -475,7 +475,7 @@ const BookFlightForm = () => {
                         >
                             <Button
                                 type="submit"
-                                className="mt-4 w-full bg-[#e63946] md:w-auto"
+                                className="mt-4 w-full cursor-not-allowed bg-[#e63946] hover:opacity-50 disabled:opacity-50 md:w-auto"
                                 disabled={isSubmitting}
                             >
                                 Review Booking

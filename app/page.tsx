@@ -11,10 +11,9 @@ import { splitStringUsingRegex } from "@/lib/splitStringUsingRegex";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { heroImages } from "./lib/hero-images";
-import {
-    BlurImageOnLoadDesktop,
-    BlurImageOnLoadMobile,
-} from "./components/dynamic-blurImage";
+
+import CarouselMobile from "./components/carouselMobile";
+import CarouselDesktop from "./components/carouselDesktop";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -113,20 +112,11 @@ export default function Home() {
     return (
         <main className="z-[999] min-h-dvh">
             <div className="pt-12">
-                <div className="pb-14 md:relative md:pb-3">
-                    <BlurImageOnLoadDesktop
-                        src={
-                            "https://images.unsplash.com/photo-1496644256288-2bb0a65f32f6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        }
-                    />
+                <div className="pb-14 md:relative md:pb-0">
                     <div className="grid items-center justify-center text-center md:min-h-dvh md:grid-flow-col md:grid-cols-2">
+                    <CarouselDesktop />
                         <div className="relative flex h-dvh w-full flex-col items-center justify-center space-y-8 text-balance md:h-auto md:w-full">
-                            <BlurImageOnLoadMobile
-                                src={
-                                    "https://images.unsplash.com/photo-1496644256288-2bb0a65f32f6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                }
-                            />
-
+                            <CarouselMobile />
                             <motion.h1
                                 initial="hidden"
                                 animate="visible"
@@ -247,7 +237,7 @@ export default function Home() {
                 </div>
 
                 {/* Explore Destinations */}
-                <div className="space-y-4 bg-[#f0e1ff] p-2 md:mt-0">
+                <div className="space-y-4 bg-[#f0e1ff] p-2 md:pt-8">
                     <h2 className="pl-3 text-3xl font-semibold">
                         Discover our Featured Destinations.
                     </h2>
