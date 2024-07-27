@@ -170,7 +170,7 @@ const BookFlightForm = () => {
                     initial="hidden"
                     animate="visible"
                     variants={confirmContainerVariants}
-                    className="text-start"
+                    className="text-start my-6"
                 >
                     <h2 className="my-2 text-2xl font-semibold uppercase text-blue-600">
                         Confirm Your Booking
@@ -237,7 +237,7 @@ const BookFlightForm = () => {
                     </p>
                     <form
                         onSubmit={form.handleSubmit(onSubmit)}
-                        className="mx-auto w-full rounded-lg bg-white p-6 shadow-md"
+                        className="mx-auto w-full rounded-lg p-6 md:bg-white md:shadow-md"
                     >
                         <motion.div
                             initial="hidden"
@@ -487,7 +487,7 @@ const BookFlightForm = () => {
                         >
                             <Button
                                 type="submit"
-                                className="mb-8 mt-4 w-full bg-[#e63946] hover:bg-[#e63946]/80 disabled:opacity-50 md:mb-0 md:w-auto"
+                                className="mb-6 mt-4 w-full bg-[#e63946] hover:bg-[#e63946]/80 disabled:opacity-50 md:mb-0 md:w-auto"
                                 disabled={isSubmitting}
                             >
                                 Review Booking
