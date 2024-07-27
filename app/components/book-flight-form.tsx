@@ -231,7 +231,7 @@ const BookFlightForm = () => {
             ) : (
                 <Form {...form}>
                     <p
-                        className={`mb-2 rounded-md bg-primary p-1 text-background ${setShowConfirmation} ? 'hidden' ? ''`}
+                        className={`mb-3 mt-7 rounded-md bg-primary p-1 text-background ${setShowConfirmation} ? 'hidden' ? ''`}
                     >
                         Book your flights with us today.
                     </p>
@@ -260,7 +260,7 @@ const BookFlightForm = () => {
                                                     size={18}
                                                 />
                                                 <Input
-                                                    className="pl-10 focus-visible:ring-offset-0"
+                                                    className="bg-gray-800 pl-10 focus-visible:border-none focus-visible:ring-gray-500 focus-visible:ring-offset-0"
                                                     placeholder="Departure Location"
                                                     {...field}
                                                 />
@@ -286,7 +286,7 @@ const BookFlightForm = () => {
                                                     size={18}
                                                 />
                                                 <Input
-                                                    className="pl-10 focus-visible:ring-offset-0"
+                                                    className="bg-gray-800 pl-10 focus-visible:border-none focus-visible:ring-gray-500 focus-visible:ring-offset-0"
                                                     placeholder="Arrival Location"
                                                     {...field}
                                                 />
@@ -332,7 +332,7 @@ const BookFlightForm = () => {
                                                 />
                                                 <Input
                                                     {...field}
-                                                    className="pl-10 focus-visible:ring-offset-0"
+                                                    className="bg-gray-800 pl-10 focus-visible:border-none focus-visible:ring-gray-500 focus-visible:ring-offset-0"
                                                     placeholder="Name"
                                                 />
                                             </div>
@@ -357,7 +357,7 @@ const BookFlightForm = () => {
                                                     size={18}
                                                 />
                                                 <Input
-                                                    className="pl-10 focus-visible:ring-offset-0"
+                                                    className="bg-gray-800 pl-10 focus-visible:border-none focus-visible:ring-gray-500 focus-visible:ring-offset-0"
                                                     placeholder="Email"
                                                     type="email"
                                                     {...field}
@@ -384,7 +384,7 @@ const BookFlightForm = () => {
                                                     size={18}
                                                 />
                                                 <Input
-                                                    className="pl-10 focus-visible:ring-offset-0"
+                                                    className="bg-gray-800 pl-10 focus-visible:border-none focus-visible:ring-gray-500 focus-visible:ring-offset-0"
                                                     placeholder="Phone Number"
                                                     type="tel"
                                                     {...field}
@@ -413,7 +413,7 @@ const BookFlightForm = () => {
                                                 <Input
                                                     type="number"
                                                     placeholder="Passengers"
-                                                    className="pl-10 focus-visible:ring-offset-0"
+                                                    className="bg-gray-800 pl-10 focus-visible:border-none focus-visible:ring-gray-500 focus-visible:ring-offset-0"
                                                     {...field}
                                                     onChange={(e) =>
                                                         field.onChange(
@@ -443,12 +443,15 @@ const BookFlightForm = () => {
                                             defaultValue={field.value}
                                         >
                                             <FormControl>
-                                                <SelectTrigger className="focus-visible:ring-offset-0">
+                                                <SelectTrigger className="bg-gray-800 text-gray-200 focus-visible:border-none focus-visible:ring-1 focus-visible:ring-gray-500 focus-visible:ring-offset-0">
                                                     <SelectValue placeholder="Select travel class" />
                                                 </SelectTrigger>
                                             </FormControl>
-                                            <SelectContent>
-                                                <SelectItem value="economy">
+                                            <SelectContent className="bg-gray-800 text-primary hover:text-background">
+                                                <SelectItem
+                                                    className=""
+                                                    value="economy"
+                                                >
                                                     Economy
                                                 </SelectItem>
                                                 <SelectItem value="premiumEconomy">
@@ -475,7 +478,7 @@ const BookFlightForm = () => {
                         >
                             <Button
                                 type="submit"
-                                className="mt-4 w-full cursor-not-allowed bg-[#e63946] hover:opacity-50 disabled:opacity-50 md:w-auto"
+                                className="mb-8 mt-4 w-full bg-[#e63946] hover:bg-[#e63946]/80 disabled:opacity-50 md:mt-0 md:w-auto"
                                 disabled={isSubmitting}
                             >
                                 Review Booking

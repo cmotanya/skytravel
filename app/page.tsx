@@ -112,8 +112,8 @@ export default function Home() {
     return (
         <main className="z-[999] min-h-dvh">
             <div className="pt-12">
-                <div className="pb-14 md:relative md:pb-0">
-                    <div className="grid items-center justify-center text-center md:min-h-dvh md:grid-flow-col md:grid-cols-2">
+                <div className="md:relative md:pb-0">
+                    <div className="grid items-center justify-center text-center md:min-h-dvh md:grid-flow-col md:grid-cols-2 md:pr-4">
                         <CarouselDesktop />
                         <div className="relative flex h-dvh w-full flex-col items-center justify-center text-balance md:h-auto md:w-full">
                             <CarouselMobile />
@@ -229,7 +229,7 @@ export default function Home() {
                         {/* Form */}
                         <div
                             id="form"
-                            className="flex w-full flex-col items-center justify-center px-2 pt-10 md:px-0"
+                            className="flex w-full flex-col items-center justify-center bg-gray-800/90 px-2 md:rounded-md md:p-4"
                         >
                             <BookFlightForm />
                         </div>

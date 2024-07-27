@@ -9,23 +9,11 @@ const Carousel = () => {
     const interval = 3000;
 
     /* Function that changes the slide to the next one. */
-    const goToPrevious = () => {
-        const isFirstSlide = currentIndex === 0;
-        const newIndex = isFirstSlide ? images.length - 1 : currentIndex - 1;
-        setCurrentIndex(newIndex);
-    };
-
-    /* Function that changes the slide to the next one. */
     const goToNext = useCallback(() => {
         const isLastSlide = currentIndex === images.length - 1;
         const newIndex = isLastSlide ? 0 : currentIndex + 1;
         setCurrentIndex(newIndex);
     }, [currentIndex]);
-
-    /* Function that changes the slide to the next one. */
-    const goToSlide = (index: number) => {
-        setCurrentIndex(index);
-    };
 
     /* Automatically change the slide every 3 seconds */
     useEffect(() => {
@@ -83,7 +71,7 @@ const Carousel = () => {
                                 src={item.src}
                                 alt=""
                                 priority
-                                layout="fill"
+                                fill
                                 sizes="(100vw, 100vh)"
                                 className="object-cover object-center"
                             />
