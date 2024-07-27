@@ -94,7 +94,7 @@ const MobileNav = () => {
                         variants={navVariants}
                         aria-label="Mobile Navigation"
                         className={cn(
-                            "fixed right-0 top-[5.5rem] z-[1000] mr-2 flex h-[calc(100vh-6rem)] w-[90%] flex-col overflow-hidden rounded-lg bg-gray-800 text-xl ring-4 ring-gray-600 ring-offset-2",
+                            "fixed right-0 top-[5rem] z-[1000] flex h-[calc(100vh-5rem)] w-full flex-col overflow-hidden bg-gray-800 text-xl",
                             isOpen ? "right-0" : "-right-full"
                         )}
                     >
