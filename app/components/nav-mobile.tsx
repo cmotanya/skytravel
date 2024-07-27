@@ -88,7 +88,7 @@ const MobileNav = () => {
                         variants={navVariants}
                         aria-label="Mobile Navigation"
                         className={cn(
-                            "fixed -right-2 top-[5.5rem] z-[1000] mr-2 flex h-auto w-3/4 flex-col justify-between overflow-y-auto rounded-lg bg-gray-800 text-xl ring-4 ring-gray-600 ring-offset-2",
+                            "fixed -right-2 top-[5.5rem] z-[1000] mr-2 flex h-auto w-[90%] flex-col justify-between overflow-y-auto rounded-lg bg-gray-800 text-xl ring-4 ring-gray-600 ring-offset-2",
                             isOpen ? "right-0" : "-right-full"
                         )}
                     >
@@ -136,6 +136,9 @@ const MobileNav = () => {
                                     );
                                 })}
                             </motion.ul>
+                        </div>
+                        <div className="text-sm uppercase p-3">
+                            supported languages: english
                         </div>
                     </motion.nav>
                 )}

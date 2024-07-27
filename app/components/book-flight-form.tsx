@@ -231,7 +231,7 @@ const BookFlightForm = () => {
             ) : (
                 <Form {...form}>
                     <p
-                        className={`mb-3 mt-7 rounded-md bg-primary p-1 text-background ${setShowConfirmation} ? 'hidden' ? ''`}
+                        className={`mb-3 mt-7 rounded-md bg-primary p-1 text-background md:mt-2 ${setShowConfirmation} ? 'hidden' ? ''`}
                     >
                         Book your flights with us today.
                     </p>
@@ -447,20 +447,29 @@ const BookFlightForm = () => {
                                                     <SelectValue placeholder="Select travel class" />
                                                 </SelectTrigger>
                                             </FormControl>
-                                            <SelectContent className="bg-gray-800 text-primary hover:text-background">
+                                            <SelectContent className="bg-gray-800 text-background hover:text-primary">
                                                 <SelectItem
-                                                    className=""
+                                                    className="text-background"
                                                     value="economy"
                                                 >
                                                     Economy
                                                 </SelectItem>
-                                                <SelectItem value="premiumEconomy">
+                                                <SelectItem
+                                                    value="premiumEconomy"
+                                                    className="text-background"
+                                                >
                                                     Premium Economy
                                                 </SelectItem>
-                                                <SelectItem value="business">
+                                                <SelectItem
+                                                    value="business"
+                                                    className="text-background"
+                                                >
                                                     Business
                                                 </SelectItem>
-                                                <SelectItem value="first">
+                                                <SelectItem
+                                                    value="first"
+                                                    className="text-background"
+                                                >
                                                     First
                                                 </SelectItem>
                                             </SelectContent>
@@ -478,7 +487,7 @@ const BookFlightForm = () => {
                         >
                             <Button
                                 type="submit"
-                                className="mb-8 mt-4 w-full bg-[#e63946] hover:bg-[#e63946]/80 disabled:opacity-50 md:mt-0 md:w-auto"
+                                className="mb-8 mt-4 w-full bg-[#e63946] hover:bg-[#e63946]/80 disabled:opacity-50 md:mb-0 md:w-auto"
                                 disabled={isSubmitting}
                             >
                                 Review Booking
