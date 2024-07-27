@@ -22,7 +22,7 @@ export function DatePicker({ date, setDate }: DatePickerProps) {
                 <Button
                     variant={"outline"}
                     className={cn(
-                        "w-full justify-start bg-gray-800 text-left font-normal text-gray-200 focus-visible:border-none focus-visible:ring-gray-500 focus-visible:ring-offset-0",
+                        "w-full justify-start bg-gray-50 text-left font-normal text-gray-800 focus-visible:border-none focus-visible:ring-blue-500 focus-visible:ring-offset-0",
                         !date && "text-muted-foreground"
                     )}
                 >

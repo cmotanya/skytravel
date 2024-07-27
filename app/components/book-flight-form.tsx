@@ -172,11 +172,11 @@ const BookFlightForm = () => {
                     variants={confirmContainerVariants}
                     className="text-start"
                 >
-                    <h2 className="my-2 text-2xl font-semibold uppercase">
-                        Confirm Your Booking.
+                    <h2 className="my-2 text-2xl font-semibold uppercase text-blue-600">
+                        Confirm Your Booking
                     </h2>
 
-                    <div className="space-y-2">
+                    <div className="space-y-2 rounded-lg bg-white p-4 shadow-md">
                         {[
                             { label: "From", value: formData.from },
                             { label: "To", value: formData.to },
@@ -209,19 +209,19 @@ const BookFlightForm = () => {
                         initial="hidden"
                         animate="visible"
                         variants={confirmButtonVariants}
-                        className="mt-4 flex w-[20rem] gap-6"
+                        className="mt-4 flex w-full gap-4 sm:w-[20rem]"
                     >
                         <Button
                             onClick={handleConfirm}
                             disabled={isSubmitting}
-                            className="w-[20rem] bg-green-700 font-semibold uppercase hover:bg-green-600 md:w-auto"
+                            className="flex-1 bg-green-500 font-semibold uppercase text-white hover:bg-green-600"
                         >
                             {isSubmitting ? "Confirming..." : "Confirm Booking"}
                         </Button>
 
                         <Button
                             onClick={handleEdit}
-                            className="w-3/4 bg-[#c568d8] text-black md:w-auto"
+                            className="flex-1 bg-purple-500 text-white hover:bg-purple-600"
                             // variant={"destructive"}
                         >
                             Edit Details
@@ -231,13 +231,13 @@ const BookFlightForm = () => {
             ) : (
                 <Form {...form}>
                     <p
-                        className={`mb-3 mt-7 rounded-md bg-primary p-1 text-background md:mt-2 ${setShowConfirmation} ? 'hidden' ? ''`}
+                        className={`mb-3 mt-7 rounded-md bg-blue-100 p-1 text-blue-800 md:mt-2 ${setShowConfirmation} ? 'hidden' ? ''`}
                     >
                         Book your flights with us today.
                     </p>
                     <form
                         onSubmit={form.handleSubmit(onSubmit)}
-                        className="mx-auto w-full"
+                        className="mx-auto w-full rounded-lg bg-white p-6 shadow-md"
                     >
                         <motion.div
                             initial="hidden"
@@ -260,7 +260,7 @@ const BookFlightForm = () => {
                                                     size={18}
                                                 />
                                                 <Input
-                                                    className="bg-gray-800 pl-10 focus-visible:border-none focus-visible:ring-gray-500 focus-visible:ring-offset-0"
+                                                    className="border-gray-300 bg-gray-50 pl-10 text-gray-800 focus-visible:border-blue-500 focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:ring-offset-0"
                                                     placeholder="Departure Location"
                                                     {...field}
                                                 />
@@ -286,7 +286,7 @@ const BookFlightForm = () => {
                                                     size={18}
                                                 />
                                                 <Input
-                                                    className="bg-gray-800 pl-10 focus-visible:border-none focus-visible:ring-gray-500 focus-visible:ring-offset-0"
+                                                    className="border-gray-300 bg-gray-50 pl-10 text-gray-800 focus-visible:border-blue-500 focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:ring-offset-0"
                                                     placeholder="Arrival Location"
                                                     {...field}
                                                 />
@@ -332,7 +332,7 @@ const BookFlightForm = () => {
                                                 />
                                                 <Input
                                                     {...field}
-                                                    className="bg-gray-800 pl-10 focus-visible:border-none focus-visible:ring-gray-500 focus-visible:ring-offset-0"
+                                                    className="border-gray-300 bg-gray-50 pl-10 text-gray-800 focus-visible:border-blue-500 focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:ring-offset-0"
                                                     placeholder="Name"
                                                 />
                                             </div>
@@ -357,7 +357,7 @@ const BookFlightForm = () => {
                                                     size={18}
                                                 />
                                                 <Input
-                                                    className="bg-gray-800 pl-10 focus-visible:border-none focus-visible:ring-gray-500 focus-visible:ring-offset-0"
+                                                    className="border-gray-300 bg-gray-50 pl-10 text-gray-800 focus-visible:border-blue-500 focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:ring-offset-0"
                                                     placeholder="Email"
                                                     type="email"
                                                     {...field}
@@ -384,7 +384,7 @@ const BookFlightForm = () => {
                                                     size={18}
                                                 />
                                                 <Input
-                                                    className="bg-gray-800 pl-10 focus-visible:border-none focus-visible:ring-gray-500 focus-visible:ring-offset-0"
+                                                    className="border-gray-300 bg-gray-50 pl-10 text-gray-800 focus-visible:border-blue-500 focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:ring-offset-0"
                                                     placeholder="Phone Number"
                                                     type="tel"
                                                     {...field}
@@ -413,7 +413,7 @@ const BookFlightForm = () => {
                                                 <Input
                                                     type="number"
                                                     placeholder="Passengers"
-                                                    className="bg-gray-800 pl-10 focus-visible:border-none focus-visible:ring-gray-500 focus-visible:ring-offset-0"
+                                                    className="border-gray-300 bg-gray-50 pl-10 text-gray-800 focus-visible:border-blue-500 focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:ring-offset-0"
                                                     {...field}
                                                     onChange={(e) =>
                                                         field.onChange(
@@ -443,32 +443,32 @@ const BookFlightForm = () => {
                                             defaultValue={field.value}
                                         >
                                             <FormControl>
-                                                <SelectTrigger className="bg-gray-800 text-gray-200 focus-visible:border-none focus-visible:ring-1 focus-visible:ring-gray-500 focus-visible:ring-offset-0">
+                                                <SelectTrigger className="border-gray-300 bg-gray-50 pl-10 text-gray-800 focus-visible:border-blue-500 focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:ring-offset-0">
                                                     <SelectValue placeholder="Select travel class" />
                                                 </SelectTrigger>
                                             </FormControl>
-                                            <SelectContent className="bg-gray-800 text-background hover:text-primary">
+                                            <SelectContent className="bg-gray-50 hover:text-gray-50 focus-visible:ring-offset-0">
                                                 <SelectItem
-                                                    className="text-background"
+                                                    className="text-gray-800"
                                                     value="economy"
                                                 >
                                                     Economy
                                                 </SelectItem>
                                                 <SelectItem
                                                     value="premiumEconomy"
-                                                    className="text-background"
+                                                    className="text-gray-800"
                                                 >
                                                     Premium Economy
                                                 </SelectItem>
                                                 <SelectItem
                                                     value="business"
-                                                    className="text-background"
+                                                    className="text-gray-800"
                                                 >
                                                     Business
                                                 </SelectItem>
                                                 <SelectItem
                                                     value="first"
-                                                    className="text-background"
+                                                    className="text-gray-800"
                                                 >
                                                     First
                                                 </SelectItem>
