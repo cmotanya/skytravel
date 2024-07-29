@@ -50,7 +50,7 @@ const Carousel = () => {
     return (
         <>
             {" "}
-            <div className="absolute -z-10 h-dvh w-full md:bg-transparent"></div>
+            {/* <div className="absolute -z-10 h-dvh w-full bg-gray-900/70 md:bg-transparent"></div> */}
             <div
                 ref={testimonialRef}
                 className="absolute -z-50 block h-full w-full scale-0 transform overflow-hidden transition duration-300 md:hidden"

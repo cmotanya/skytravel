@@ -13,7 +13,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-    title: "TravelAir - Your trusted travel partner",
+    title: "SkyTicket - Your trusted travel partner",
     description:
         "Book your next flight with TravelAir, a reliable and secure online travel agency with a wide range of destinations and travel options.",
 };

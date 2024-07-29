@@ -35,7 +35,7 @@ const Header = () => {
                     : "bg-[#2135f1] text-background shadow-2xl"
             )}
         >
-            <Link href="/">TravelAir</Link>
+            <Link href="/">SkyTicket</Link>
 
             <DesktopNav />
 
