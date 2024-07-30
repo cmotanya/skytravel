@@ -110,26 +110,26 @@ export default function Home() {
 
     return (
         <main className="z-[99999]">
-            <div className="flex h-dvh flex-col justify-around pt-[6rem]">
-                <div className="h-[16rem] w-full md:h-[70%]">
+            <div className="flex h-dvh flex-col justify-around pt-[6rem] md:relative md:pt-[5rem]">
+                <div className="h-[16rem] w-full md:h-full">
                     <video
-                        controls
+                        // controls
                         autoPlay
                         loop
                         muted
-                        className="h-full w-full rounded-md object-cover"
+                        className="h-full w-full object-cover"
                     >
                         <source src="/videos/hero-video.mp4" type="video/mp4" />
                     </video>
                 </div>
                 <div className="grid items-center justify-center text-center md:min-h-dvh">
-                    <div className="flex w-full flex-col items-center justify-center md:h-auto md:w-full md:text-balance">
+                    <div className="inset-0 flex w-full flex-col items-center justify-center md:absolute md:h-auto md:w-full md:text-balance">
                         <motion.h1
                             initial="hidden"
                             animate="visible"
                             variants={containerVariants}
                             className={cn(
-                                "pb-4 font-sans text-2xl font-bold text-primary md:text-5xl",
+                                "pb-4 font-sans text-2xl font-bold text-primary md:text-5xl md:text-background",
                                 fontSans.variable
                             )}
                         >
@@ -143,7 +143,7 @@ export default function Home() {
                             ))}
                         </motion.h1>
                         <motion.p
-                            className="leading-7 text-primary"
+                            className="leading-7 text-primary md:text-background"
                             initial="hidden"
                             animate="visible"
                             variants={charVariants}
@@ -157,7 +157,7 @@ export default function Home() {
                             whileInView="visible"
                             viewport={{ once: true }}
                             variants={buttonContainerVariants}
-                            className="flex w-3/4 flex-col gap-4 pb-6 pt-10 md:flex-row"
+                            className="flex w-3/4 md:w-fit flex-col gap-4 md:space-x-16 mb-6 mt-10 md:flex-row"
                         >
                             <motion.div variants={buttonVariants}>
                                 <Button
@@ -167,7 +167,7 @@ export default function Home() {
                                     onMouseLeave={() =>
                                         setIsMouseEntered(false)
                                     }
-                                    className="mx-auto flex h-[48px] w-full items-center gap-4 rounded-full font-semibold uppercase tracking-wide ring-1 ring-[#1d3557] md:w-auto"
+                                    className="flex h-[48px] w-full items-center gap-4 rounded-full font-semibold uppercase tracking-wide ring-1 ring-[#1d3557] md:w-auto"
                                 >
                                     <Link href="#form">
                                         <span className="relative overflow-hidden">
