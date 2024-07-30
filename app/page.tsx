@@ -157,7 +157,7 @@ export default function Home() {
                             whileInView="visible"
                             viewport={{ once: true }}
                             variants={buttonContainerVariants}
-                            className="flex w-3/4 md:w-fit flex-col gap-4 md:space-x-16 mb-6 mt-10 md:flex-row"
+                            className="mb-6 mt-10 flex w-3/4 flex-col gap-4 md:w-fit md:flex-row md:space-x-16"
                         >
                             <motion.div variants={buttonVariants}>
                                 <Button
@@ -260,7 +260,7 @@ export default function Home() {
                         <motion.div
                             key={index}
                             whileHover={{ scale: 1.05 }}
-                            className="flex flex-row gap-2 overflow-hidden rounded-sm bg-[#b267fe] text-sm font-semibold text-primary"
+                            className="flex flex-row gap-2 overflow-hidden rounded-sm bg-blue-400 text-sm font-semibold text-primary"
                         >
                             <Image
                                 src={item.src}
@@ -296,7 +296,7 @@ export default function Home() {
                     ))}
                 </motion.div>
 
-                <Button className="w-3/4 bg-[#1d3557] font-semibold uppercase md:w-auto">
+                <Button className="w-3/4 rounded-full bg-[#2135f1] font-semibold uppercase md:w-auto">
                     <Link href={"/destinations"}>Explore All Destinations</Link>
                 </Button>
             </div>
