@@ -88,16 +88,16 @@ const Carousel = () => {
                         alt={carouselImages[currentIndex].alt || ""}
                         width={400}
                         height={400}
-                        className="h-[10rem] w-full object-cover object-center"
+                        className="h-[12rem] w-full object-cover object-center"
                     />
-                    <div className="flex flex-col justify-between p-2">
-                        <h4>{carouselImages[currentIndex].destination}</h4>
-                        <p className="font-normal pb-3">
+                    <div className="flex flex-col justify-between px-4 py-2">
+                        <h4 className="pb-1">{carouselImages[currentIndex].destination}</h4>
+                        <p className="pb-3 font-normal">
                             {carouselImages[currentIndex].description}
                         </p>
                         <>
                             {carouselImages[currentIndex].discountedPrice ? (
-                                <span className="flex justify-between pr-1">
+                                <span className="flex justify-start gap-4 pr-1 md:justify-between">
                                     <span className="w-fit rounded-md bg-gray-800 px-1 py-0.5 font-normal text-background">
                                         {`$${carouselImages[currentIndex].discountedPrice}`}
                                     </span>
