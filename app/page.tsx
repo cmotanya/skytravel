@@ -124,7 +124,7 @@ export default function Home() {
                                 animate="visible"
                                 variants={containerVariants}
                                 className={cn(
-                                    "pb-8 font-sans text-4xl font-bold text-primary md:text-5xl",
+                                    "pb-8 font-sans text-2xl font-bold text-primary md:text-5xl",
                                     fontSans.variable
                                 )}
                             >
