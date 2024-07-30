@@ -23,7 +23,7 @@ const fontSans = FontSans({
 export default function Home() {
     const [isMouseEntered, setIsMouseEntered] = useState(false);
 
-    const heading = "EXPLORE THE WORLD WITH TRAVELAIR";
+    const heading = "EXPLORE THE WORLD WITH SKYTICKET";
 
     const headingChar = splitStringUsingRegex(heading);
 
@@ -118,7 +118,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="grid items-center justify-center pt-[5rem] text-center md:min-h-dvh">
-                        <div className="flex w-full flex-col items-center justify-center text-balance md:h-auto md:w-full">
+                        <div className="flex w-full flex-col items-center justify-center md:h-auto md:w-full md:text-balance">
                             <motion.h1
                                 initial="hidden"
                                 animate="visible"
@@ -138,17 +138,13 @@ export default function Home() {
                                 ))}
                             </motion.h1>
                             <motion.p
-                                className="hidden font-semibold leading-7 text-primary md:block"
+                                className="font-semibold leading-7 text-primary"
                                 initial="hidden"
                                 animate="visible"
                                 variants={charVariants}
                             >
-                                Explore some of the most beautiful and exotic
-                                locations around the world. Whether you&apos;re
-                                looking for a relaxing beach getaway, an
-                                adventurous mountain hike, or a cultural city
-                                experience, we have something for everyone. Let
-                                us inspire your next journey.
+                                Discover amazing destinations and create
+                                unforgettable memories
                             </motion.p>
                             {/* Button Component */}
                             <motion.div
