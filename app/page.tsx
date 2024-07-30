@@ -138,7 +138,7 @@ export default function Home() {
                                 ))}
                             </motion.h1>
                             <motion.p
-                                className="font-semibold leading-7 text-primary"
+                                className="leading-7 text-primary"
                                 initial="hidden"
                                 animate="visible"
                                 variants={charVariants}

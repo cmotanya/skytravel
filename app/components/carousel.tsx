@@ -103,7 +103,7 @@ const Carousel = () => {
                                 {dots.map((dot) => (
                                     <button
                                         key={dot}
-                                        className={`mx-1 size-4 rounded-full transition-colors duration-300 ${currentIndex === dot ? "scale-125 bg-primary" : "bg-primary/50 hover:bg-primary/75"}`}
+                                        className={`mx-1 size-2 rounded-full transition-colors duration-300 ${currentIndex === dot ? "scale-150 bg-primary" : "bg-primary/50 hover:bg-primary/75"}`}
                                         onClick={() => goToSlide(dot)}
                                         aria-label={`(Go to slide) ${index + 1}`}
                                     ></button>
