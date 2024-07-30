@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -12,15 +10,16 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
-interface IHeroDestinationProps {
+interface HeroSectionProps {
     imageSrc: string;
     imageAlt: string;
     title: string;
     subtitle: string;
     ctaText: string;
     onCtaClick: () => void;
-    showSearchForm?: boolean;
+    showSearchForm: boolean;
 }
 
 const HeroSection = ({
@@ -31,16 +30,16 @@ const HeroSection = ({
     ctaText,
     onCtaClick,
     showSearchForm = false,
-}: IHeroDestinationProps) => {
+}: HeroSectionProps) => {
     const [destination, setDestination] = useState("");
+    const [tripType, setTripType] = useState("return");
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
     const [travelers, setTravelers] = useState("1");
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle search logic here
-        console.log({ destination, startDate, endDate, travelers });
+        console.log({ destination, tripType, startDate, endDate, travelers });
     };
 
     return (
@@ -74,26 +73,58 @@ const HeroSection = ({
                         {showSearchForm && (
                             <form
                                 onSubmit={handleSearch}
-                                className="space-y-4 rounded-lg bg-secondary p-4"
+                                className="rounded-lg bg-secondary p-4"
                             >
-                                <div>
-                                    <Label htmlFor="destination">
-                                        Destination
-                                    </Label>
-                                    <Input
-                                        id="destination"
-                                        placeholder="Where do you want to go?"
-                                        value={destination}
-                                        onChange={(e) =>
-                                            setDestination(e.target.value)
-                                        }
-                                    />
+                                <div className="mb-4">
+                                    <RadioGroup
+                                        defaultValue="return"
+                                        onValueChange={setTripType}
+                                        className="flex space-x-4"
+                                    >
+                                        <div className="flex items-center space-x-2">
+                                            <RadioGroupItem
+                                                value="one-way"
+                                                id="one-way"
+                                            />
+                                            <Label htmlFor="one-way">
+                                                One Way
+                                            </Label>
+                                        </div>
+                                        <div className="flex items-center space-x-2">
+                                            <RadioGroupItem
+                                                value="return"
+                                                id="return"
+                                            />
+                                            <Label htmlFor="return">
+                                                Return
+                                            </Label>
+                                        </div>
+                                    </RadioGroup>
                                 </div>
-
-                                <div className="flex space-x-4">
+                                <div className="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
                                     <div className="flex-1">
-                                        <Label htmlFor="startDate">
-                                            Start Date
+                                        <Label
+                                            htmlFor="destination"
+                                            className="sr-only"
+                                        >
+                                            Destination
+                                        </Label>
+                                        <Input
+                                            id="destination"
+                                            placeholder="Destination"
+                                            value={destination}
+                                            onChange={(e) =>
+                                                setDestination(e.target.value)
+                                            }
+                                        />
+                                    </div>
+
+                                    <div className="flex-1">
+                                        <Label
+                                            htmlFor="startDate"
+                                            className="sr-only"
+                                        >
+                                            Departure Date
                                         </Label>
                                         <Input
                                             id="startDate"
@@ -104,51 +135,62 @@ const HeroSection = ({
                                             }
                                         />
                                     </div>
+
+                                    {tripType === "return" && (
+                                        <div className="flex-1">
+                                            <Label
+                                                htmlFor="endDate"
+                                                className="sr-only"
+                                            >
+                                                Return Date
+                                            </Label>
+                                            <Input
+                                                id="endDate"
+                                                type="date"
+                                                value={endDate}
+                                                onChange={(e) =>
+                                                    setEndDate(e.target.value)
+                                                }
+                                            />
+                                        </div>
+                                    )}
+
                                     <div className="flex-1">
-                                        <Label htmlFor="endDate">
-                                            End Date
+                                        <Label
+                                            htmlFor="travelers"
+                                            className="sr-only"
+                                        >
+                                            Travelers
                                         </Label>
-                                        <Input
-                                            id="endDate"
-                                            type="date"
-                                            value={endDate}
-                                            onChange={(e) =>
-                                                setEndDate(e.target.value)
-                                            }
-                                        />
+                                        <Select
+                                            value={travelers}
+                                            onValueChange={setTravelers}
+                                        >
+                                            <SelectTrigger id="travelers">
+                                                <SelectValue placeholder="Travelers" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                {[1, 2, 3, 4, 5, "6+"].map(
+                                                    (num) => (
+                                                        <SelectItem
+                                                            key={num}
+                                                            value={num.toString()}
+                                                        >
+                                                            {num}{" "}
+                                                            {num === 1
+                                                                ? "Traveler"
+                                                                : "Travelers"}
+                                                        </SelectItem>
+                                                    )
+                                                )}
+                                            </SelectContent>
+                                        </Select>
                                     </div>
-                                </div>
 
-                                <div>
-                                    <Label htmlFor="travelers">Travelers</Label>
-                                    <Select
-                                        value={travelers}
-                                        onValueChange={setTravelers}
-                                    >
-                                        <SelectTrigger id="travelers">
-                                            <SelectValue placeholder="Select number of travelers" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            {[1, 2, 3, 4, 5, "6+"].map(
-                                                (num) => (
-                                                    <SelectItem
-                                                        key={num}
-                                                        value={num.toString()}
-                                                    >
-                                                        {num}{" "}
-                                                        {num === 1
-                                                            ? "Traveler"
-                                                            : "Travelers"}
-                                                    </SelectItem>
-                                                )
-                                            )}
-                                        </SelectContent>
-                                    </Select>
+                                    <Button type="submit" className="flex-1">
+                                        Search
+                                    </Button>
                                 </div>
-
-                                <Button type="submit" className="w-full">
-                                    Search
-                                </Button>
                             </form>
                         )}
                     </div>

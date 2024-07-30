@@ -12,8 +12,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { heroImages } from "./lib/hero-images";
 
-import CarouselMobile from "./components/carouselMobile";
-import CarouselDesktop from "./components/carouselDesktop";
+import Carousel from "./components/carousel";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -110,19 +109,22 @@ export default function Home() {
     });
 
     return (
-        <main className="z-[999] min-h-dvh">
-            <div className="pt-12">
-                <div className="md:relative md:pb-0">
-                    <div className="grid items-center justify-center text-center md:min-h-dvh md:grid-flow-col md:grid-cols-2 md:pr-4">
-                        <CarouselDesktop />
-                        <div className="relative flex h-dvh w-full flex-col items-center justify-center text-balance md:h-auto md:w-full">
-                            <CarouselMobile />
+        <main className="z-[99999]">
+            <div className="">
+                <div className="grid h-dvh grid-flow-row md:grid-flow-col md:grid-cols-2">
+                    <div className="grid h-full w-full grid-flow-col items-center rounded-md pt-2 px-2 md:px-12">
+                        <div className="h-[16rem] w-full md:h-[70%]">
+                            <Carousel />
+                        </div>
+                    </div>
+                    <div className="grid items-center justify-center pt-[5rem] text-center md:min-h-dvh">
+                        <div className="flex w-full flex-col items-center justify-center text-balance md:h-auto md:w-full">
                             <motion.h1
                                 initial="hidden"
                                 animate="visible"
                                 variants={containerVariants}
                                 className={cn(
-                                    "bg-gradient-to-r from-gray-400 to-rose-500 bg-clip-text pb-8 font-sans text-4xl font-bold text-transparent md:text-5xl",
+                                    "pb-8 font-sans text-4xl font-bold text-primary md:text-5xl",
                                     fontSans.variable
                                 )}
                             >
@@ -136,7 +138,7 @@ export default function Home() {
                                 ))}
                             </motion.h1>
                             <motion.p
-                                className="leading-7 text-background"
+                                className="font-semibold leading-7 text-primary"
                                 initial="hidden"
                                 animate="visible"
                                 variants={charVariants}
@@ -226,14 +228,15 @@ export default function Home() {
                                 </motion.div>
                             </motion.div>
                         </div>
-                        {/* Form */}
-                        <div
-                            id="form"
-                            className="flex w-full flex-col items-center justify-center px-2 md:rounded-md md:p-4"
-                        >
-                            <BookFlightForm />
-                        </div>
                     </div>
+                </div>
+
+                {/* Form */}
+                <div
+                    id="form"
+                    className="flex max-w-3xl flex-col items-center justify-center px-2 md:rounded-md md:p-4"
+                >
+                    <BookFlightForm />
                 </div>
 
                 {/* Explore Destinations */}

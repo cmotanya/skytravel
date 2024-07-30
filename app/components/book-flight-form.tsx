@@ -24,11 +24,14 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { delay, motion, stagger } from "framer-motion";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 
 const BookFlightForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [formData, setFormData] = useState<BookFlightSchema | null>(null);
+    const [tripType, setTripType] = useState("return");
     const [bookingStatus, setBookingStatus] = useState<
         "success" | "idle" | "error"
     >("idle");
@@ -170,13 +173,13 @@ const BookFlightForm = () => {
                     initial="hidden"
                     animate="visible"
                     variants={confirmContainerVariants}
-                    className="text-start my-6"
+                    className="my-6 text-start"
                 >
-                    <h2 className="my-2 text-2xl font-semibold uppercase text-blue-600">
+                    <h2 className="mx-auto my-2 w-fit rounded-md bg-blue-100 p-1 text-base text-blue-800">
                         Confirm Your Booking
                     </h2>
 
-                    <div className="space-y-2 rounded-lg bg-white p-4 shadow-md">
+                    <div className="space-y-2 rounded-lg bg-secondary p-4 shadow-md">
                         {[
                             { label: "From", value: formData.from },
                             { label: "To", value: formData.to },
@@ -214,7 +217,7 @@ const BookFlightForm = () => {
                         <Button
                             onClick={handleConfirm}
                             disabled={isSubmitting}
-                            className="flex-1 bg-green-500 font-semibold uppercase text-white hover:bg-green-600"
+                            className="flex-1 bg-green-500 font-semibold text-white hover:bg-green-600"
                         >
                             {isSubmitting ? "Confirming..." : "Confirm Booking"}
                         </Button>
@@ -231,14 +234,37 @@ const BookFlightForm = () => {
             ) : (
                 <Form {...form}>
                     <p
-                        className={`mb-3 mt-7 rounded-md bg-blue-100 p-1 text-blue-800 md:mt-2 ${setShowConfirmation} ? 'hidden' ? ''`}
+                        className={`mb-3 mt-3 rounded-md bg-blue-100 p-1 text-blue-800 md:mt-2 ${setShowConfirmation} ? 'hidden' ? ''`}
                     >
                         Book your flights with us today.
                     </p>
                     <form
                         onSubmit={form.handleSubmit(onSubmit)}
-                        className="mx-auto w-full rounded-lg p-6 md:bg-white md:shadow-md"
+                        className="mx-auto w-full rounded-lg bg-secondary p-6 md:shadow-md"
                     >
+                        <div className="mb-4">
+                            <RadioGroup
+                                defaultValue="return"
+                                onValueChange={setTripType}
+                                className="flex space-x-4"
+                            >
+                                <div className="flex items-center space-x-2">
+                                    <RadioGroupItem
+                                        value="one-way"
+                                        id="one-way"
+                                    />
+                                    <Label htmlFor="one-way">One Way</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                    <RadioGroupItem
+                                        value="return"
+                                        id="return"
+                                    />
+                                    <Label htmlFor="return">Return</Label>
+                                </div>
+                            </RadioGroup>
+                        </div>
+
                         <motion.div
                             initial="hidden"
                             animate="visible"
