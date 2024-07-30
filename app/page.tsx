@@ -274,7 +274,9 @@ export default function Home() {
                                 className="flex flex-col justify-around pt-2"
                             >
                                 <h4>{item.destination}</h4>
-                                <p>{item.description}</p>
+                                <p className="font-normal">
+                                    {item.description}
+                                </p>
                                 <>
                                     {item.discountedPrice ? (
                                         <span className="flex justify-between pr-1">
