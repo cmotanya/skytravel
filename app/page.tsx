@@ -3,14 +3,12 @@
 import { Button } from "@/components/ui/button";
 import BookFlightForm from "./components/book-flight-form";
 import { IconArrowRight, IconLuggage } from "@tabler/icons-react";
-import Image from "next/image";
 import Link from "next/link";
 import { Merienda as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { splitStringUsingRegex } from "@/lib/splitStringUsingRegex";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { heroImages } from "./lib/hero-images";
 
 import Carousel from "./components/carousel";
 
@@ -253,49 +251,10 @@ export default function Home() {
                 <motion.div
                     initial="hidden"
                     animate="visible"
-                    className="grid grid-cols-1 gap-4 md:grid-cols-4"
+                    className="mx-auto h-full overflow-hidden md:h-[25rem] md:max-w-2xl"
                     variants={imageContainerVariants}
                 >
-                    {heroImages.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            whileHover={{ scale: 1.05 }}
-                            className="flex flex-row gap-2 overflow-hidden rounded-sm bg-blue-200 text-sm font-semibold text-primary"
-                        >
-                            <Image
-                                src={item.src}
-                                alt={item.alt}
-                                width={400}
-                                height={400}
-                                className="h-[11rem] w-1/2 object-cover object-center"
-                            />
-                            <motion.div
-                                variants={cardVariants}
-                                className="flex flex-col justify-around pt-2"
-                            >
-                                <h4>{item.destination}</h4>
-                                <p className="font-normal">
-                                    {item.description}
-                                </p>
-                                <>
-                                    {item.discountedPrice ? (
-                                        <span className="flex justify-between pr-1">
-                                            <span className="w-fit rounded-md bg-gray-800 px-1 py-0.5 font-normal text-background">
-                                                {`$${item.discountedPrice}`}
-                                            </span>
-                                            <span className="w-fit rounded-md bg-destructive px-1 py-0.5 font-normal text-background line-through">
-                                                {`$${item.price}`}
-                                            </span>
-                                        </span>
-                                    ) : (
-                                        <span className="w-fit rounded-md bg-gray-800 px-1 py-0.5 font-normal text-background">
-                                            {`$${item.price}`}
-                                        </span>
-                                    )}
-                                </>
-                            </motion.div>
-                        </motion.div>
-                    ))}
+                    <Carousel />
                 </motion.div>
 
                 <Button className="w-3/4 rounded-full bg-[#2135f1] font-semibold uppercase md:w-auto">

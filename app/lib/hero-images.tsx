@@ -1,4 +1,4 @@
-export const heroImages = [
+export const carouselImages = [
     {
         src: "https://t4.ftcdn.net/jpg/05/62/55/73/240_F_562557397_K4v0doCFQFhiwdsnNtpqa5CWsy7D1yTB.jpg",
         alt: "Vibrant Coastal City",

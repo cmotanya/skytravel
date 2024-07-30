@@ -1,6 +1,8 @@
-import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { images } from "../lib/carouselImages";
+import { AnimatePresence, motion } from "framer-motion";
+import { carouselImages } from "../lib/hero-images";
 
 const Carousel = () => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -73,46 +75,56 @@ const Carousel = () => {
     return (
         <div
             ref={carouselRef}
-            className="mt-20 h-full w-full scale-0 transform overflow-hidden transition duration-300 md:mt-10"
+            className="relative mt-3 h-full w-full scale-0 transform overflow-hidden rounded-sm bg-blue-200 pb-6 transition duration-300 md:mt-10"
         >
-            <Suspense>
-                {images.map((item, index) => (
-                    /* Slides */
-                    <div
-                        key={item.src}
-                        className={`absolute inset-0 transition-opacity duration-1000 ${
-                            index === currentIndex
-                                ? "translate-x-0 opacity-100"
-                                : index < currentIndex
-                                  ? "-translate-x-full opacity-0"
-                                  : "translate-x-full opacity-0"
-                        }`}
-                    >
-                        <div className="relative h-full w-full">
-                            <Image
-                                src={item.src}
-                                alt=""
-                                // priority={index === currentIndex ? true : false}
-                                fill
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                className="rounded-md object-cover object-center"
-                            />
-
-                            {/* Dots */}
-                            <div className="absolute bottom-2 left-1/2 z-[10] flex -translate-x-1/2 items-center">
-                                {dots.map((dot) => (
-                                    <button
-                                        key={dot}
-                                        className={`mx-1 size-2 rounded-full transition-colors duration-300 ${currentIndex === dot ? "scale-150 bg-primary" : "bg-primary/50 hover:bg-primary/75"}`}
-                                        onClick={() => goToSlide(dot)}
-                                        aria-label={`(Go to slide) ${index + 1}`}
-                                    ></button>
-                                ))}
-                            </div>
-                        </div>
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={currentIndex}
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-blue-200 text-sm font-semibold text-primary"
+                >
+                    <Image
+                        src={carouselImages[currentIndex].src}
+                        alt={carouselImages[currentIndex].alt || ""}
+                        width={400}
+                        height={400}
+                        className="h-[10rem] w-full object-cover object-center"
+                    />
+                    <div className="flex flex-col justify-between p-2">
+                        <h4>{carouselImages[currentIndex].destination}</h4>
+                        <p className="font-normal pb-3">
+                            {carouselImages[currentIndex].description}
+                        </p>
+                        <>
+                            {carouselImages[currentIndex].discountedPrice ? (
+                                <span className="flex justify-between pr-1">
+                                    <span className="w-fit rounded-md bg-gray-800 px-1 py-0.5 font-normal text-background">
+                                        {`$${carouselImages[currentIndex].discountedPrice}`}
+                                    </span>
+                                    <span className="w-fit rounded-md bg-destructive px-1 py-0.5 font-normal text-background line-through">
+                                        {`$${carouselImages[currentIndex].price}`}
+                                    </span>
+                                </span>
+                            ) : (
+                                <span className="w-fit rounded-md bg-gray-800 px-1 py-0.5 font-normal text-background">
+                                    {`$${carouselImages[currentIndex].price}`}
+                                </span>
+                            )}
+                        </>
                     </div>
-                ))}
-            </Suspense>
+                    {/* Dots */}
+                    <div className="absolute bottom-2 left-1/2 z-[10] flex -translate-x-1/2 items-center">
+                        {dots.map((dot) => (
+                            <button
+                                key={dot}
+                                className={`mx-1 size-2 rounded-full transition-colors duration-300 ${currentIndex === dot ? "scale-150 bg-primary" : "bg-primary/50 hover:bg-primary/75"}`}
+                                onClick={() => goToSlide(dot)}
+                                aria-label={`(Go to slide) ${currentIndex + 1}`}
+                            ></button>
+                        ))}
+                    </div>
+                </motion.div>
+            </AnimatePresence>
         </div>
     );
 };
