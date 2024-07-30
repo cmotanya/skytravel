@@ -88,7 +88,7 @@ const Carousel = () => {
                         alt={carouselImages[currentIndex].alt || ""}
                         width={400}
                         height={400}
-                        className="h-[12rem] w-full object-cover object-center"
+                        className="h-[13rem] w-full object-cover object-center"
                     />
                     <div className="flex flex-col justify-between px-4 py-2">
                         <h4 className="pb-1">{carouselImages[currentIndex].destination}</h4>
