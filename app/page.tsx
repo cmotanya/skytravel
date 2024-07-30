@@ -112,7 +112,7 @@ export default function Home() {
         <main className="z-[99999]">
             <div className="">
                 <div className="grid h-dvh grid-flow-row md:grid-flow-col md:grid-cols-2">
-                    <div className="grid h-full w-full grid-flow-col items-center rounded-md pt-2 px-2 md:px-12">
+                    <div className="grid h-full w-full grid-flow-col items-center rounded-md px-2 pt-2 md:px-12">
                         <div className="h-[16rem] w-full md:h-[70%]">
                             <Carousel />
                         </div>
@@ -138,7 +138,7 @@ export default function Home() {
                                 ))}
                             </motion.h1>
                             <motion.p
-                                className="font-semibold leading-7 text-primary"
+                                className="hidden font-semibold leading-7 text-primary md:block"
                                 initial="hidden"
                                 animate="visible"
                                 variants={charVariants}
