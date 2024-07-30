@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import DesktopNav from "./components/nav-desktop";
 import MobileNav from "./components/nav-mobile";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const Header = () => {
     const [hasScrolled, setHasScrolled] = useState(false);
@@ -35,7 +36,15 @@ const Header = () => {
                     : "bg-[#2135f1] text-background shadow-2xl"
             )}
         >
-            <Link href="/">SkyTicket</Link>
+            <Link href="/">
+                <Image
+                    src={"/images/logo.png"}
+                    alt=""
+                    width={100} // Adjust the width as needed
+                    height={100} // Adjust the height as needed
+                    className="h-[60px] w-[60px] rounded-full"
+                />
+            </Link>
 
             <DesktopNav />
 

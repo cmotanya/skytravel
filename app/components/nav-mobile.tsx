@@ -35,14 +35,6 @@ const MobileNav = () => {
         router.push(href);
     };
 
-    useEffect(() => {
-        if (isOpen) {
-            document.body.classList.add("no-scroll");
-        } else {
-            document.body.classList.remove("no-scroll");
-        }
-    }, [isOpen]);
-
     const navVariants = {
         closed: {
             x: "100%",
@@ -156,7 +148,7 @@ const MobileNav = () => {
                                                 <SelectValue placeholder="Select language" />
                                             </SelectTrigger>
                                             <SelectContent
-                                                className="border-gray-600 bg-gray-700 text-gray-200 z-[9999]"
+                                                className="z-[9999] border-gray-600 bg-gray-700 text-gray-200"
                                                 position="popper"
                                                 sideOffset={4}
                                                 align="end"

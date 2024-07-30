@@ -92,7 +92,7 @@ const Carousel = () => {
                             <Image
                                 src={item.src}
                                 alt=""
-                                priority={index === currentIndex ? true : false}
+                                // priority={index === currentIndex ? true : false}
                                 fill
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 className="rounded-md object-cover object-center"

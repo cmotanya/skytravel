@@ -114,10 +114,21 @@ export default function Home() {
                 <div className="grid h-dvh grid-flow-row md:grid-flow-col md:grid-cols-2">
                     <div className="grid h-full w-full grid-flow-col items-center rounded-md px-2 pt-2 md:px-12">
                         <div className="h-[16rem] w-full md:h-[70%]">
-                            <Carousel />
+                            <video
+                                controls
+                                autoPlay
+                                loop
+                                muted
+                                className="h-full w-full rounded-md object-cover"
+                            >
+                                <source
+                                    src="/videos/hero-video.mp4"
+                                    type="video/mp4"
+                                />
+                            </video>
                         </div>
                     </div>
-                    <div className="grid items-center justify-center text-center md:min-h-dvh">
+                    <div className="grid items-center justify-center pt-[5rem] text-center md:min-h-dvh">
                         <div className="flex w-full flex-col items-center justify-center md:h-auto md:w-full md:text-balance">
                             <motion.h1
                                 initial="hidden"
