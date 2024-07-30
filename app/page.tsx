@@ -260,7 +260,7 @@ export default function Home() {
                         <motion.div
                             key={index}
                             whileHover={{ scale: 1.05 }}
-                            className="flex flex-row gap-2 overflow-hidden rounded-sm bg-blue-400 text-sm font-semibold text-primary"
+                            className="flex flex-row gap-2 overflow-hidden rounded-sm bg-blue-200 text-sm font-semibold text-primary"
                         >
                             <Image
                                 src={item.src}
