@@ -128,7 +128,7 @@ export default function Home() {
                             </video>
                         </div>
                     </div>
-                    <div className="grid items-center justify-center pt-[5rem] text-center md:min-h-dvh">
+                    <div className="grid items-center justify-center text-center md:min-h-dvh">
                         <div className="flex w-full flex-col items-center justify-center md:h-auto md:w-full md:text-balance">
                             <motion.h1
                                 initial="hidden"
