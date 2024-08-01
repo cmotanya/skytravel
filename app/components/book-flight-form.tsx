@@ -286,7 +286,7 @@ const BookFlightForm = () => {
                                                     size={18}
                                                 />
                                                 <Input
-                                                    className="border-gray-300 bg-gray-50 pl-10 text-gray-800 focus-visible:border-blue-500 focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:ring-offset-0"
+                                                    className="rounded-full border-gray-300 bg-gray-50 pl-10 py-6 text-gray-800 focus-visible:border-blue-500 focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:ring-offset-0"
                                                     placeholder="Departure Location"
                                                     {...field}
                                                 />
@@ -312,7 +312,7 @@ const BookFlightForm = () => {
                                                     size={18}
                                                 />
                                                 <Input
-                                                    className="border-gray-300 bg-gray-50 pl-10 text-gray-800 focus-visible:border-blue-500 focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:ring-offset-0"
+                                                    className="border-gray-300 bg-gray-50 pl-10 rounded-md py-6 text-gray-800 focus-visible:border-blue-500 focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:ring-offset-0"
                                                     placeholder="Arrival Location"
                                                     {...field}
                                                 />
