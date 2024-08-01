@@ -108,10 +108,9 @@ export default function Home() {
 
     return (
         <main className="z-[99999]">
-            <div className="flex h-dvh flex-col justify-around pt-[6rem] md:relative md:pt-[5rem]">
+            <div className="flex h-dvh flex-col justify-around pt-[0rem] md:relative md:pt-[5rem]">
                 <div className="h-[16rem] w-full md:h-full">
                     <video
-                        // controls
                         autoPlay
                         loop
                         muted
@@ -127,7 +126,7 @@ export default function Home() {
                             animate="visible"
                             variants={containerVariants}
                             className={cn(
-                                "pb-4 font-sans text-2xl font-bold text-primary md:text-5xl md:text-background",
+                                "pb-4 font-sans text-2xl font-bold text-primary md:pt-8 md:text-5xl md:text-background",
                                 fontSans.variable
                             )}
                         >
