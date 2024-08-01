@@ -108,7 +108,7 @@ export default function Home() {
 
     return (
         <main className="z-[99999]">
-            <div className="flex h-dvh flex-col justify-around pt-[1rem] md:relative md:pt-[5rem]">
+            <div className="flex h-dvh flex-col justify-around pt-[2rem] md:relative md:pt-[5rem]">
                 <div className="h-[16rem] w-full md:h-full">
                     <video
                         autoPlay
